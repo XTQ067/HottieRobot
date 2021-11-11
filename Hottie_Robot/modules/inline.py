@@ -48,7 +48,7 @@ class AioHttp:
 
 
 @pbot.on_inline_query()
-async def inline_query_handler(client, query):
+async def alive_functions(client, query):
     bot_state = "Dead" if not await app.get_me() else "Alive"
     string = query.query.lower()
     if string == "":
@@ -88,6 +88,7 @@ async def inline_query_handler(client, query):
             switch_pm_parameter="start",
             cache_time=300,
         ),
+async def inline_query_handler(client, query):
     if string == "":
         await client.answer_inline_query(
             query.id,
