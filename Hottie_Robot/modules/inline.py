@@ -65,8 +65,9 @@ async def inline_query_handler(client, query):
 **Pyrogram:** `{pyrover}`
 **MongoDB:** `{mongover}`
 **Platform:** `{sys.platform}`
-**Profiles:** [BOT](t.me/Hottie_Robot) ,parse_mode=ParseMode.MARKDOWN
-""",
+**Profiles:** [BOT](t.me/Hottie_Robot)
+""", parse_mode=ParseMode.MARKDOWN,
+)
                     photo_url="https://telegra.ph/file/7cab440852751e60368c1.jpg",
                     parse_mode="html",
                     title="Alive",
