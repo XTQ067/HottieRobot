@@ -245,10 +245,10 @@ def start(update: Update, context: CallbackContext):
                 timeout=60,
             )
     else:
-        update.effective_message.reply_photo(
-            HOTTIE_IMG, caption=f"Hottie🔥!!!!\nIs Alive"
-        )
-
+        update.effective_message.reply_animation(
+            HOTTIE_IMG, caption= "<b>Yes, I'm alive!\nHaven't sleep since: <code>{}</code></b>".format(
+                uptime
+              ),
 
 # for test purposes
 def error_callback(update: Update, context: CallbackContext):
