@@ -70,7 +70,7 @@ buttons = [
                     ],
                    [
                        InlineKeyboardButton(text="[► Help ◄]", callback_data="help_back"),
-                       InlineKeyboardButton(text="[► Owner ◄]", url="https://t.me/AASFCYBERKING"),
+                       InlineKeyboardButton(text="❔ Chit Chat", url="https://t.me/Anime_python_coding"),
                        InlineKeyboardButton(text="[► Inline ◄]", switch_inline_query_current_chat=""),
                      ],
                     [                  
