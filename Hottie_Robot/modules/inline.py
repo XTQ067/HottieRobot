@@ -45,7 +45,6 @@ class AioHttp:
                 return await resp.read()
 
 
-# imported from @LordHitsuki_BOT
 
 
 @pbot.on_inline_query()
@@ -67,7 +66,7 @@ async def inline_query_handler(client, query):
 **Platform:** `{sys.platform}`
 **Profiles:** [BOT](t.me/Hottie_Robot)
 """,
-                    photo_url="https://telegra.ph/file/7cab440852751e60368c1.jpg",
+                    photo_url="https://telegra.ph/file/2c9e0efe2f240b53bd08d.jpg",
                     parse_mode=ParseMode.MARKDOWN,
                     title="Alive",
                     description="Check Bot's Stats!",
