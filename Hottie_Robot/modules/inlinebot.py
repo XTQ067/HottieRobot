@@ -38,6 +38,34 @@ async def inline_query_handler(client, query):
                                          results=[
                                              InlineQueryResultPhoto(
                                                  caption="Hey! I have an inline mode, click the buttons below to start your exploration!",
+                                                 photo_url="https://telegra.ph/file/7cab440852751e60368c1.jpg",
+                                                 parse_mode="html",
+                                                 title="Alive",
+                                                 description="Check Bot's Stats!",
+                                                 reply_markup=InlineKeyboardMarkup(
+                                                     [[
+                                                         InlineKeyboardButton(
+                                                             "Main Bot", url="https://t.me/Hottie_Robot"),
+                                                         InlineKeyboardButton(
+                                                             text="Inline", switch_inline_query_current_chat)
+                                                     ]]
+                                                 )
+                                             ),
+                                         ],
+                                         switch_pm_text="Click here to PM",
+                                         switch_pm_parameter="start",
+                                         cache_time=300
+                                         )
+
+
+@pbot.on_inline_query()
+async def inline_query_handler(client, query):
+    string = query.query.lower()
+    if string == "":
+        await client.answer_inline_query(query.id,
+                                         results=[
+                                             InlineQueryResultPhoto(
+                                                 caption="Hey! I have an inline mode, click the buttons below to start your exploration!",
                                                  photo_url="https://telegra.ph/file/9a9517a5bd2ebade4d851.jpg",
                                                  parse_mode="html",
                                                  title="Need Help?",
