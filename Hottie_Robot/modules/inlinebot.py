@@ -58,9 +58,6 @@ async def inline_query_handler(client, query):
                                          )
 
 
-@pbot.on_inline_query()
-async def inline_query_handler(client, query):
-    string = query.query.lower()
     if string == "":
         await client.answer_inline_query(query.id,
                                          results=[
