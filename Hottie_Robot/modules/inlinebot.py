@@ -11,6 +11,7 @@ from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
                             InputTextMessageContent)
 
 app = pbot
+bot_state = "Dead" if not await app.get_me() else "Alive"
 
 class AioHttp:
     @staticmethod
@@ -47,12 +48,11 @@ class AioHttp:
 @pbot.on_inline_query()
 async def inline_query_handler(client, query):
     string = query.query.lower()
-    bot_state = "Dead" if not await app.get_me() else "Alive"
     if string == "":
         await client.answer_inline_query(query.id,
                                          results=[
                                              InlineQueryResultPhoto(
-                                                 caption="Hey! I have an inline mode, click the buttons below to start your exploration!",
+                                                 caption="{msg}",
                                                  photo_url="https://telegra.ph/file/7cab440852751e60368c1.jpg",
                                                  parse_mode="html",
                                                  title="Alive",
