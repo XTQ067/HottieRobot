@@ -1,9 +1,11 @@
-
+import sys
 import aiohttp
 import requests
 from Hottie_Robot import pbot
 from Hottie_Robot.modules.anime import (airing_query, anime_query, character_query,
                                    manga_query, shorten, t, url)
+from pyrogram import __version__ as pyrover
+from motor import version as mongover
 from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
                             InlineQueryResultArticle, InlineQueryResultPhoto,
                             InputTextMessageContent)
@@ -44,6 +46,7 @@ class AioHttp:
 @pbot.on_inline_query()
 async def inline_query_handler(client, query):
     string = query.query.lower()
+    bot_state = "Dead" if not await app.get_me() else "Alive"
     if string == "":
         await client.answer_inline_query(query.id,
                                          results=[
