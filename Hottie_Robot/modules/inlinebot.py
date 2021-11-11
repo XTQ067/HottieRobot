@@ -47,7 +47,7 @@ async def inline_query_handler(client, query):
                                                          InlineKeyboardButton(
                                                              "Main Bot", url="https://t.me/Hottie_Robot"),
                                                          InlineKeyboardButton(
-                                                             text="Inline", switch_inline_query_current_chat)
+                                                             text="Inline", switch_inline_query_current_chat="")
                                                      ]]
                                                  )
                                              ),
