@@ -12,6 +12,7 @@ from Hottie_Robot.modules.anime import (
     url,
 )
 from pyrogram import __version__ as pyrover
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from motor import version as mongover
 from pyrogram.types import (
     InlineKeyboardButton,
