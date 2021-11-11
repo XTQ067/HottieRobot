@@ -16,7 +16,7 @@ import Hottie_Robot.modules.sql.rules_sql as rulessql
 
 # from Hottie_Robot.modules.sql import warns_sql as warnssql
 import Hottie_Robot.modules.sql.blacklist_sql as blacklistsql
-from Hottie_Robot import disable_sql as disabledsql
+from Hottie_Robot.modules.sql import disable_sql as disabledsql
 
 # from Hottie_Robot.modules.sql import cust_filters_sql as filtersql
 # import Hottie_Robot.modules.sql.welcome_sql as welcsql
