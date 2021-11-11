@@ -12,17 +12,6 @@ from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
 
 app = pbot
 
-msg = f"""
-**[Hottie 🔥](https://github.com/AASFCYBERKING/HottieRobot):**
-**MainBot:** `Alive`
-**UserBot:** `Alive`
-**Python:** `3.9`
-**Pyrogram:** `{pyrover}`
-**MongoDB:** `{mongover}`
-**Platform:** `{sys.platform}`
-**Profiles:** [BOT](t.me/Hottie_Robot)
-"""
-
 class AioHttp:
     @staticmethod
     async def get_json(link):
