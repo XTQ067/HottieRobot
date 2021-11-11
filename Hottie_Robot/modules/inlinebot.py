@@ -11,7 +11,6 @@ from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
                             InputTextMessageContent)
 
 app = pbot
-bot_state = "Dead" if not await app.get_me() else "Alive"
 
 class AioHttp:
     @staticmethod
@@ -34,7 +33,16 @@ class AioHttp:
 
 #imported from @LordHitsuki_BOT
 
-    msg = f"""
+
+@pbot.on_inline_query()
+async def inline_query_handler(client, query):
+    bot_state = "Dead" if not await app.get_me() else "Alive"
+    string = query.query.lower()
+    if string == "":
+        await client.answer_inline_query(query.id,
+                                         results=[
+                                             InlineQueryResultPhoto(
+                                                 caption=f"""
 **[Hottie 🔥](https://github.com/AASFCYBERKING/HottieRobot):**
 **MainBot:** `{bot_state}`
 **UserBot:** `Alive`
@@ -43,16 +51,7 @@ class AioHttp:
 **MongoDB:** `{mongover}`
 **Platform:** `{sys.platform}`
 **Profiles:** [BOT](t.me/Hottie_Robot)
-"""
-
-@pbot.on_inline_query()
-async def inline_query_handler(client, query):
-    string = query.query.lower()
-    if string == "":
-        await client.answer_inline_query(query.id,
-                                         results=[
-                                             InlineQueryResultPhoto(
-                                                 caption="{msg}",
+""",
                                                  photo_url="https://telegra.ph/file/7cab440852751e60368c1.jpg",
                                                  parse_mode="html",
                                                  title="Alive",
