@@ -10,6 +10,7 @@ from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
                             InlineQueryResultArticle, InlineQueryResultPhoto,
                             InputTextMessageContent)
 
+app = pbot
 
 class AioHttp:
     @staticmethod
