@@ -69,9 +69,7 @@ async def inline_query_handler(client, query):
                                          switch_pm_text="Click here to PM",
                                          switch_pm_parameter="start",
                                          cache_time=300
-                                         )
-
-
+                                         ),
         await client.answer_inline_query(query.id,
                                          results=[
                                              InlineQueryResultPhoto(
