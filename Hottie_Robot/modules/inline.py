@@ -12,6 +12,17 @@ from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
 
 app = pbot
 
+msg = f"""
+**[Hottie 🔥](https://github.com/AASFCYBERKING/HottieRobot):**
+**MainBot:** `Alive`
+**UserBot:** `Alive`
+**Python:** `3.9`
+**Pyrogram:** `{pyrover}`
+**MongoDB:** `{mongover}`
+**Platform:** `{sys.platform}`
+**Profiles:** [BOT](t.me/Hottie_Robot)
+"""
+
 class AioHttp:
     @staticmethod
     async def get_json(link):
@@ -42,16 +53,7 @@ async def inline_query_handler(client, query):
         await client.answer_inline_query(query.id,
                                          results=[
                                              InlineQueryResultPhoto(
-                                                 caption=f"""
-**[Hottie 🔥](https://github.com/AASFCYBERKING/HottieRobot):**
-**MainBot:** `{bot_state}`
-**UserBot:** `Alive`
-**Python:** `3.9`
-**Pyrogram:** `{pyrover}`
-**MongoDB:** `{mongover}`
-**Platform:** `{sys.platform}`
-**Profiles:** [BOT](t.me/Hottie_Robot)
-""",
+                                                 caption=f"{msg}",
                                                  photo_url="https://telegra.ph/file/7cab440852751e60368c1.jpg",
                                                  parse_mode="html",
                                                  title="Alive",
