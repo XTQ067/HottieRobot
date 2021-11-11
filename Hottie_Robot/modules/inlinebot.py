@@ -30,6 +30,17 @@ class AioHttp:
 
 #imported from @LordHitsuki_BOT
 
+    msg = f"""
+**[Hottie 🔥](https://github.com/AASFCYBERKING/HottieRobot):**
+**MainBot:** `{bot_state}`
+**UserBot:** `Alive`
+**Python:** `3.9`
+**Pyrogram:** `{pyrover}`
+**MongoDB:** `{mongover}`
+**Platform:** `{sys.platform}`
+**Profiles:** [BOT](t.me/Hottie_Robot)
+"""
+
 @pbot.on_inline_query()
 async def inline_query_handler(client, query):
     string = query.query.lower()
@@ -58,7 +69,6 @@ async def inline_query_handler(client, query):
                                          )
 
 
-    if string == "":
         await client.answer_inline_query(query.id,
                                          results=[
                                              InlineQueryResultPhoto(
