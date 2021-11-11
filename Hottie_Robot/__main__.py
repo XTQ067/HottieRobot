@@ -624,7 +624,7 @@ def main():
         try:
             dispatcher.bot.sendMessage(
                 f"@{SUPPORT_CHAT}",
-                "[I Am Now Online!](https://telegra.ph/file/7cab440852751e60368c1.jpg)",
+                "[Hottie Is Online🔥](https://telegra.ph/file/5f3fe7d8babf8626bface.jpg)",
                 parse_mode=ParseMode.MARKDOWN,
             )
         except Unauthorized:
