@@ -70,7 +70,7 @@ async def inline_query_handler(client, query):
                                          switch_pm_parameter="start",
                                          cache_time=300
                                          ),
-            await client.answer_inline_query(query.id, results=answerss, cache_time=2)
+                     await client.answer_inline_query(query.id, results=answerss, cache_time=2)
                                          results=[
                                              InlineQueryResultPhoto(
                                                  caption="Hey! I have an inline mode, click the buttons below to start your exploration!",
