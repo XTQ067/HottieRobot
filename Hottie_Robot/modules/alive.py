@@ -18,11 +18,11 @@ from telethon.tl.types import ChannelParticipantsAdmins
 
 edit_time = 5
 """ =======================Hottie====================== """
-file1 = "https://telegra.ph/file/66e90ac0f1d3cb921555e.jpg"  
-file2 = "https://telegra.ph/file/630e9270c3943d2ee8d53.jpg" 
-file3 = "https://telegra.ph/file/1aa24c64c306206d0030e.jpg"  
-file4 = "https://telegra.ph/file/ddef82e805d0a9862ba78.jpg"  
-file5 = "https://telegra.ph/file/ede3ab6b3cf77064ff080.jpg"  
+file1 = "https://telegra.ph/file/960c13008180026ba29d8.jpg"  
+file2 = "https://telegra.ph/file/2bb74f438315a77ad3197.jpg" 
+file3 = "https://telegra.ph/file/f20d978416c131377ae65.jpg"  
+file4 = "https://telegra.ph/file/8deb66fd79cfbc3f70758.jpg"  
+file5 = "https://telegra.ph/file/51190abbdf5f8095f21a9.jpg"  
 """ =======================Hottie====================== """
 
 BUTTON = [[Button.url("【►Sᴜᴘᴘᴏʀᴛ◄】", "https://t.me/Hottie_support"), Button.url("【►Updates◄】", "https://t.me/Hottie_Updates")]]
