@@ -11,6 +11,7 @@ from Hottie_Robot import (ALLOW_EXCL, CERT_PATH, DONATION_LINK, LOGGER,
 # NOTE: Module order is not guaranteed, specify that in the config file!
 from Hottie_Robot.modules import ALL_MODULES
 from Hottie_Robot.modules.helper_funcs.chat_status import is_user_admin
+import Hottie_Robot.modules.sql.users_sql as sql
 from Hottie_Robot.modules.helper_funcs.misc import paginate_modules
 from telegram import (InlineKeyboardButton, InlineKeyboardMarkup, ParseMode,
                       Update)
