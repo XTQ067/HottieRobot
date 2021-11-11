@@ -115,7 +115,7 @@ Main commands available:
  ➢ /donate: information on how to donate!
  ➢ /settings:
    ❃ in PM: will send you your settings for all supported modules.
-   ❃ in a group: will redirect you to pm, with all that chat's settings.
+   ❃ in a group: will redirect you to pm, with all that chat's settings[.](https://telegra.ph/file/3ee000660b88822e880d1.jpg)
 """.format(
     dispatcher.bot.first_name,
     ""
