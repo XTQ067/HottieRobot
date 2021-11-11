@@ -88,6 +88,8 @@ async def alive_functions(client, query):
             switch_pm_parameter="start",
             cache_time=300,
         ),
+
+@pbot.on_inline_query()
 async def inline_query_handler(client, query):
     if string == "":
         await client.answer_inline_query(
