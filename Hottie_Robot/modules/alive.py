@@ -11,9 +11,9 @@ from io import BytesIO
 from datetime import datetime
 import random
 from telethon import events, Button, custom, version
-from HottieRobot.events import register
-from HottieRobot import telethn as borg
-from HottieRobot import StartTime, dispatcher
+from Hottie_Robot.events import register
+from Hottie_Robot import telethn as borg
+from Hottie_Robot import StartTime, dispatcher
 from telethon.tl.types import ChannelParticipantsAdmins
 
 edit_time = 5
