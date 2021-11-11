@@ -96,7 +96,7 @@ Main commands available:
     dispatcher.bot.first_name, ""
     if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\nKindly use ! for commands if / is not working\n")
 
-HOTTIE_IMG = "https://telegra.ph/file/7cab440852751e60368c1.jpg"
+HOTTIE_IMG = "https://telegra.ph/file/034f7af441c73da64fda1.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
 Click here to donate in [Paypal](https://ko-fi.com/aasfcyberking)"""
@@ -219,7 +219,7 @@ def start(update: Update, context: CallbackContext):
                 timeout=60,
             )
     else:
-        update.effective_message.reply_video(
+        update.effective_message.reply_photo(
                 HOTTIE_IMG, caption=f"Hottie🔥!!!!\nIs Alive")
 
 # for test purposes
