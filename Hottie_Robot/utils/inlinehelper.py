@@ -64,17 +64,16 @@ async def inline_help_func(__HELP__):
     return answerss
 
 
-async def alive_function(answers):
-    buttons = InlineKeyboard(row_width=2)
+async def alive_functions(client, query):
     bot_state = "Dead" if not await app.get_me() else "Alive"
-    # ubot_state = 'Dead' if not await app2.get_me() else 'Alive'
-    buttons.add(
-        InlineKeyboardButton("Main Bot", url="https://t.me/Hottie_Robot"),
-        InlineKeyboardButton("Go Inline!", switch_inline_query_current_chat=""),
-    )
-
-    msg = f"""
-**[HOTTIE 🔥](https://github.com/AASFCYBERKING/HottieRobot):**
+    string = query.query.lower()
+    if string == "":
+        await client.answer_inline_query(
+            query.id,
+            results=[
+                InlineQueryResultPhoto(
+                    caption=f"""
+**[Hottie 🔥](https://github.com/AASFCYBERKING/HottieRobot):**
 **MainBot:** `{bot_state}`
 **UserBot:** `Alive`
 **Python:** `3.9`
@@ -82,20 +81,29 @@ async def alive_function(answers):
 **MongoDB:** `{mongover}`
 **Platform:** `{sys.platform}`
 **Profiles:** [BOT](t.me/Hottie_Robot)
-"""
-    answers.append(
-        InlineQueryResultArticle(
-            title="Alive",
-            description="Check Bot's Stats",
-            thumb_url="https://telegra.ph/file/2c9e0efe2f240b53bd08d.jpg",
-            input_message_content=InputTextMessageContent(
-                msg, disable_web_page_preview=True
-            ),
-            reply_markup=buttons,
+""",
+                    photo_url="https://telegra.ph/file/2c9e0efe2f240b53bd08d.jpg",
+                    parse_mode=ParseMode.MARKDOWN,
+                    title="Alive",
+                    description="Check Bot's Stats!",
+                    reply_markup=InlineKeyboardMarkup(
+                        [
+                            [
+                                InlineKeyboardButton(
+                                    "Main Bot", url="https://t.me/Hottie_Robot"
+                                ),
+                                InlineKeyboardButton(
+                                    text="Inline", switch_inline_query_current_chat=""
+                                ),
+                            ]
+                        ]
+                    ),
+                ),
+            ],
+            switch_pm_text="Click here to PM",
+            switch_pm_parameter="start",
+            cache_time=300,
         )
-    )
-    return answers
-
 
 async def webss(url):
     start_time = time()
