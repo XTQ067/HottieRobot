@@ -184,7 +184,9 @@ else:
 
 # Credits Logger
 print("[HOTTIE] HOTTIE Is Starting. | Hottie • Project | Licensed Under GPLv3.")
-print("[HOTTIE] Hot Hottie! Successfully Connected With A  Hottie • Data Center • Tamil Nadu")
+print(
+    "[HOTTIE] Hot Hottie! Successfully Connected With A  Hottie • Data Center • Tamil Nadu"
+)
 print("[HOTTIE] Project Maintained By: github.com/AASFCYBERKING (t.me/AASFCYBERKING)")
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
