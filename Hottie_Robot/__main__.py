@@ -246,9 +246,25 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_animation(
-            HOTTIE_IMG, caption= "<b>Yes, I'm alive!\nHaven't sleep since: <code>{}</code></b>".format(
+            HOTTIE_IMG, caption= "<b>Yes, Darling I'm alive!\nHaven't sleep since</b>: <code>{}</code>".format(
                 uptime
-              ),
+            ),
+            parse_mode=ParseMode.HTML,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            text="🚑 Support",
+                            url=f"https://telegram.dog/{SUPPORT_CHAT}",
+                        ),
+                        InlineKeyboardButton(
+                            text="📢 Updates",
+                            url="https://t.me/Hottie_Updates",
+                        ),
+                    ]
+                ]
+            ),
+        )
 
 # for test purposes
 def error_callback(update: Update, context: CallbackContext):
