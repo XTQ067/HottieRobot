@@ -69,3 +69,4 @@ glitch_this
 NumPy
 opencv-python-headless
 countryinfo==0.1.2
+loguru
