@@ -64,16 +64,17 @@ async def inline_help_func(__HELP__):
     return answerss
 
 
-async def alive_function(client, query):
+async def alive_function(answers):
+    buttons = InlineKeyboard(row_width=2)
     bot_state = "Dead" if not await app.get_me() else "Alive"
-    string = query.query.lower()
-    if string == "":
-        await client.answer_inline_query(
-            query.id,
-            results=[
-                InlineQueryResultPhoto(
-                    caption=f"""
-**[Hottie 🔥](https://github.com/AASFCYBERKING/HottieRobot):**
+    # ubot_state = 'Dead' if not await app2.get_me() else 'Alive'
+    buttons.add(
+        InlineKeyboardButton("Main Bot", url="https://t.me/Hottie_Robot"),
+        InlineKeyboardButton("Go Inline!", switch_inline_query_current_chat=""),
+    )
+
+    msg = f"""
+**[HOTTIE 🔥](https://github.com/AASFCYBERKING/HottieRobot):**
 **MainBot:** `{bot_state}`
 **UserBot:** `Alive`
 **Python:** `3.9`
@@ -81,30 +82,20 @@ async def alive_function(client, query):
 **MongoDB:** `{mongover}`
 **Platform:** `{sys.platform}`
 **Profiles:** [BOT](t.me/Hottie_Robot)
-""",
-                    photo_url="https://telegra.ph/file/2c9e0efe2f240b53bd08d.jpg",
-                    parse_mode=ParseMode.MARKDOWN,
-                    title="Alive",
-                    description="Check Bot's Stats!",
-                    reply_markup=InlineKeyboardMarkup(
-                        [
-                            [
-                                InlineKeyboardButton(
-                                    "Main Bot", url="https://t.me/Hottie_Robot"
-                                ),
-                                InlineKeyboardButton(
-                                    text="Inline", switch_inline_query_current_chat=""
-                                ),
-                            ]
-                        ]
-                    ),
-                ),
-            ],
-            switch_pm_text="Click here to PM",
-            switch_pm_parameter="start",
-            cache_time=300,
+"""
+    answers.append(
+        InlineQueryResultArticle(
+            title="Alive",
+            description="Check Bot's Stats",
+            photo_url="https://telegra.ph/file/2c9e0efe2f240b53bd08d.jpg",
+            input_message_content=InputTextMessageContent(
+                msg, disable_web_page_preview=True
+            ),
+            reply_markup=buttons,
         )
+    )
     return answers
+
 
 async def webss(url):
     start_time = time()
@@ -427,7 +418,7 @@ async def ping_func(answers):
     ping = Ping(ping_id=randint(696969, 6969696))
     await app.send(ping)
     t2 = time()
-    ping = f"{round(t2 - t1, 2)} Seconds"
+    ping = f'{round(t2 - t1, 2)} Seconds'
     answers.append(
         InlineQueryResultArticle(
             title=ping, input_message_content=InputTextMessageContent(f"__**{ping}**__")
