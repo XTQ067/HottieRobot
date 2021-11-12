@@ -2,7 +2,7 @@
 import aiohttp
 from pyrogram import filters
 from Hottie_Robot import pbot
-from Hottie_Robot.pyrogramee.errors import capture_err
+from Hottie_Robot.utils.errors import capture_err
 
 
 __mod_name__ = "Github"
