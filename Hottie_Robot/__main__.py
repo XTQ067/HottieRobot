@@ -248,7 +248,8 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_photo(
-            HOTTIE_IMG, caption= "<b>Yes, Darling I'm alive!\nHaven't sleep since</b>: <code>{}</code>".format(
+            HOTTIE_IMG,
+            caption="<b>Yes, Darling I'm alive!\nHaven't sleep since</b>: <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
@@ -267,6 +268,7 @@ def start(update: Update, context: CallbackContext):
                 ]
             ),
         )
+
 
 # for test purposes
 def error_callback(update: Update, context: CallbackContext):
@@ -371,7 +373,8 @@ def get_help(update, context):
     if chat.type != chat.PRIVATE:
 
         update.effective_message.reply_photo(
-            HELP_IMG, HELP_MSG,
+            HELP_IMG,
+            HELP_MSG,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
