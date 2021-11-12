@@ -6,6 +6,7 @@ import spamwatch
 import telegram.ext as tg
 from redis import StrictRedis
 from pyrogram import Client, errors
+from Python_ARQ import ARQ
 
 from telethon import TelegramClient
 
@@ -170,13 +171,28 @@ DEV_USERS.add(OWNER_ID)
 
 if not SPAMWATCH_API:
     sw = None
-    LOGGER.warning("SpamWatch API key missing! recheck your config.")
+    LOGGER.warning("[HOTTIE ERROR]: SpamWatch API key Is Missing! Recheck Your Config.")
 else:
-    sw = spamwatch.Client(SPAMWATCH_API)
+    try:
+        sw = spamwatch.Client(SPAMWATCH_API)
+    except:
+        sw = None
+        LOGGER.warning("[HOTTIE ERROR]: Can't connect to SpamWatch!")
+
+# Credits Logger
+print("[HOTTIE] HOTTIE Is Starting. | Hottie • Project | Licensed Under GPLv3.")
+print("[HOTTIE] Hot Hottie! Successfully Connected With A  Hottie • Data Center • Tamil Nadu")
+print("[HOTTIE] Project Maintained By: github.com/AASFCYBERKING (t.me/AASFCYBERKING)")
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
+print("[HOTTIE]: TELETHON CLIENT STARTING")
 telethn = TelegramClient("HottieRobot", API_ID, API_HASH)
 pbot = Client("HottiePyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+print("[INFO]: INITIALZING AIOHTTP SESSION")
+aiohttpsession = ClientSession()
+# ARQ Client
+print("[INFO]: INITIALIZING ARQ CLIENT")
+arq = ARQ("https://thearq.tech", "YIECCC-NAJARO-OLLREW-SJSRIP-ARQ", aiohttpsession)
 dispatcher = updater.dispatcher
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
