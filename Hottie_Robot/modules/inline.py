@@ -1000,3 +1000,46 @@ def generate_time(to_find: str, findtype: List[str]) -> str:
         result = None
 
     return result
+
+@pbot.on_inline_query()
+async def alive_functions(client, query):
+    bot_state = "Dead" if not await app.get_me() else "Alive"
+    string = query.query.lower()
+    if string == "":
+        await client.answer_inline_query(
+            query.id,
+            results=[
+                InlineQueryResultPhoto(
+                    caption=f"""
+**[Hottie 🔥](https://github.com/AASFCYBERKING/HottieRobot):**
+**MainBot:** `{bot_state}`
+**UserBot:** `Alive`
+**Python:** `3.9`
+**Pyrogram:** `{pyrover}`
+**MongoDB:** `{mongover}`
+**Platform:** `{sys.platform}`
+**Profiles:** [BOT](t.me/Hottie_Robot)
+""",
+                    photo_url="https://telegra.ph/file/2c9e0efe2f240b53bd08d.jpg",
+                    parse_mode=ParseMode.MARKDOWN,
+                    title="Alive",
+                    description="Check Bot's Stats!",
+                    reply_markup=InlineKeyboardMarkup(
+                        [
+                            [
+                                InlineKeyboardButton(
+                                    "Main Bot", url="https://t.me/Hottie_Robot"
+                                ),
+                                InlineKeyboardButton(
+                                    text="Inline", switch_inline_query_current_chat=""
+                                ),
+                            ]
+                        ]
+                    ),
+                ),
+            ],
+            switch_pm_text="Click here to PM",
+            switch_pm_parameter="start",
+            cache_time=300,
+        ),
+
