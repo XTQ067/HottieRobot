@@ -10,7 +10,7 @@ from aiohttp import ClientSession
 from Python_ARQ import ARQ
 
 from telethon import TelegramClient
-from Hottie_Robot.utils.logger import log 
+from Hottie_Robot.utils.logger import log
 
 StartTime = time.time()
 

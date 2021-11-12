@@ -3,7 +3,7 @@ import sys
 
 from Hottie_Robot import log
 from motor import motor_asyncio
-from Hottie_Robot import MONGO_DB_URI 
+from Hottie_Robot import MONGO_DB_URI
 from pymongo import MongoClient
 from pymongo.errors import ServerSelectionTimeoutError
 from Hottie_Robot.conf import get_int_key, get_str_key
