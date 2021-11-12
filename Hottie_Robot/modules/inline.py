@@ -149,9 +149,47 @@ async def inline_query_handler(client, query):
             answerss = await inline_help_func(__HELP__)
             await client.answer_inline_query(query.id, results=answerss, cache_time=10)
             return
-        if text.split()[0] == "alive":
-            answerss = await alive_function(answers)
-            await client.answer_inline_query(query.id, results=answerss, cache_time=10)
+@pbot.on_inline_query()
+async def alive_functions(client, query):
+    bot_state = "Dead" if not await app.get_me() else "Alive"
+    string = query.query.lower()
+    if string == "":
+        await client.answer_inline_query(
+            query.id,
+            results=[
+                InlineQueryResultPhoto(
+                    caption=f"""
+**[Hottie 🔥](https://github.com/AASFCYBERKING/HottieRobot):**
+**MainBot:** `{bot_state}`
+**UserBot:** `Alive`
+**Python:** `3.9`
+**Pyrogram:** `{pyrover}`
+**MongoDB:** `{mongover}`
+**Platform:** `{sys.platform}`
+**Profiles:** [BOT](t.me/Hottie_Robot)
+""",
+                    photo_url="https://telegra.ph/file/2c9e0efe2f240b53bd08d.jpg",
+                    parse_mode=ParseMode.MARKDOWN,
+                    title="Alive",
+                    description="Check Bot's Stats!",
+                    reply_markup=InlineKeyboardMarkup(
+                        [
+                            [
+                                InlineKeyboardButton(
+                                    "Main Bot", url="https://t.me/Hottie_Robot"
+                                ),
+                                InlineKeyboardButton(
+                                    text="Inline", switch_inline_query_current_chat=""
+                                ),
+                            ]
+                        ]
+                    ),
+                ),
+            ],
+            switch_pm_text="Click here to PM",
+            switch_pm_parameter="start",
+            cache_time=300,
+        ),
         elif text.split()[0] == "tr":
             lang = text.split()[1]
             tex = text.split(None, 2)[2]
