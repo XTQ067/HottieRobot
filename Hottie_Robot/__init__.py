@@ -6,6 +6,7 @@ import spamwatch
 import telegram.ext as tg
 from redis import StrictRedis
 from pyrogram import Client, errors
+from aiohttp import ClientSession
 from Python_ARQ import ARQ
 
 from telethon import TelegramClient
