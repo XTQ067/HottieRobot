@@ -105,6 +105,7 @@ async def alive_function(client, query):
             cache_time=300,
         )
 
+
 async def webss(url):
     start_time = time()
     if "." not in url:
