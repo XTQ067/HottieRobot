@@ -64,7 +64,7 @@ async def inline_help_func(__HELP__):
     return answerss
 
 
-async def alive_functions(client, query):
+async def alive_function(client, query):
     bot_state = "Dead" if not await app.get_me() else "Alive"
     string = query.query.lower()
     if string == "":
