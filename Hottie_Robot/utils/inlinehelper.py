@@ -104,7 +104,7 @@ async def alive_function(client, query):
             switch_pm_parameter="start",
             cache_time=300,
         )
-
+    return answers
 
 async def webss(url):
     start_time = time()
