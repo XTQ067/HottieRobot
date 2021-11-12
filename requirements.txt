@@ -3,6 +3,7 @@ faker
 motor
 PyDictionary==2.0.1
 emoji
+envparse
 lxml
 beautifulsoup4
 requests
