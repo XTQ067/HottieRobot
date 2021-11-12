@@ -123,6 +123,7 @@ Main commands available[.](https://telegra.ph/file/3ee000660b88822e880d1.jpg)
     else "\nAll commands can either be used with / or !.\nKindly use ! for commands if / is not working\n",
 )
 
+HELP_MSG = "Click the button below to get help manu in your pm."
 HOTTIE_IMG = "https://telegra.ph/file/034f7af441c73da64fda1.jpg"
 HELP_IMG = "https://telegra.ph/file/3ee000660b88822e880d1.jpg"
 
