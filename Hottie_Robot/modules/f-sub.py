@@ -13,6 +13,7 @@ from pyrogram.errors.exceptions.bad_request_400 import (
 from pyrogram.types import ChatPermissions, InlineKeyboardButton, InlineKeyboardMarkup
 
 from Hottie_Robot import BOT_ID
+
 # from Hottie_Robot import OWNER_ID as SUDO_USERS
 from Hottie_Robot import pbot
 from Hottie_Robot.modules.sql import fsub_sql as sql
@@ -137,7 +138,17 @@ def _check_member(client, message):
             return
 
 
-@pbot.on_message(filters.command(["forcesubscribe", "forcesub", f"forcesub@Hottie_Robot", f"forcesubscribe@Hottie_Robot"]) & ~filters.private)
+@pbot.on_message(
+    filters.command(
+        [
+            "forcesubscribe",
+            "forcesub",
+            f"forcesub@Hottie_Robot",
+            f"forcesubscribe@Hottie_Robot",
+        ]
+    )
+    & ~filters.private
+)
 def config(client, message):
     user = client.get_chat_member(message.chat.id, message.from_user.id)
     if user.status == "creator":
