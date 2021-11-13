@@ -78,6 +78,7 @@ if ENV:
     APP_ID = os.environ.get("APP_ID", None)
     API_HASH = os.environ.get("API_HASH", None)
     APP_HASH = os.environ.get("APP_HASH", None)
+    BOT_ID = os.environ.get("BOT_ID", None)
     DB_URI = os.environ.get("DATABASE_URL")
     MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
     DONATION_LINK = os.environ.get("DONATION_LINK")
@@ -153,9 +154,10 @@ else:
     PORT = Config.PORT
     CERT_PATH = Config.CERT_PATH
     API_ID = Config.API_ID
-    APP_ID = Config.APP_ID
+    API_ID = Config.APP_ID
     API_HASH = Config.API_HASH
     APP_HASH = Config.APP_HASH
+    BOT_ID = Config.BOT_ID
 
     DB_URI = Config.SQLALCHEMY_DATABASE_URI
     MONGO_DB_URI = Config.MONGO_DB_URI
