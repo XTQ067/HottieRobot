@@ -75,7 +75,9 @@ if ENV:
     PORT = int(os.environ.get("PORT", 5000))
     CERT_PATH = os.environ.get("CERT_PATH")
     API_ID = os.environ.get("API_ID", None)
+    APP_ID = os.environ.get("APP_ID", None)
     API_HASH = os.environ.get("API_HASH", None)
+    APP_HASH = os.environ.get("APP_HASH", None)
     DB_URI = os.environ.get("DATABASE_URL")
     MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
     DONATION_LINK = os.environ.get("DONATION_LINK")
@@ -151,7 +153,9 @@ else:
     PORT = Config.PORT
     CERT_PATH = Config.CERT_PATH
     API_ID = Config.API_ID
+    APP_ID = Config.APP_ID
     API_HASH = Config.API_HASH
+    APP_HASH = Config.APP_HASH
 
     DB_URI = Config.SQLALCHEMY_DATABASE_URI
     MONGO_DB_URI = Config.MONGO_DB_URI
@@ -210,7 +214,7 @@ aiohttpsession = ClientSession()
 print("[INFO]: INITIALIZING ARQ CLIENT")
 arq = ARQ("https://thearq.tech", "YIECCC-NAJARO-OLLREW-SJSRIP-ARQ", aiohttpsession)
 print("[HOTTIE]: Connecting To Hottie • Hottie Userbot (t.me/AasfXHelper)")
-ubot = TelegramClient(StringSession(STRING_SESSION), APP_ID, APP_HASH)
+ubot = TelegramClient(StringSession(STRING_SESSION), API_ID, AP_HASH)
 dispatcher = updater.dispatcher
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
