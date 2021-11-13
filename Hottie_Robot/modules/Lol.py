@@ -2,7 +2,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from Hottie_Robot import PMPERMIT, DEV_USERS
-from Hottie_Robot import telethn as USER
+from Hottie_Robot import pbot as USER
 
 PMSET = True
 pchats = []
