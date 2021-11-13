@@ -2,13 +2,13 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from Hottie_Robot import PMPERMIT, DEV_USERS
-from Hottie_Robot import pbot as USER
+from Hottie_Robot import ubot
 
 PMSET = True
 pchats = []
 
 
-@USER.on_message(filters.text & filters.private & ~filters.me & ~filters.bot)
+@ubot.on_message(filters.text & filters.private & ~filters.me & ~filters.bot)
 async def pmPermit(client: USER, message: Message):
     if PMPERMIT == "ENABLE":
         if PMSET:
@@ -22,7 +22,7 @@ async def pmPermit(client: USER, message: Message):
             return
 
 
-@Client.on_message(filters.command(["/pmpermit"]))
+@ubot.on_message(filters.command(["/pmpermit"]))
 async def bye(client: Client, message: Message):
     if message.from_user.id in DEV_USERS:
         global PMSET
@@ -38,7 +38,7 @@ async def bye(client: Client, message: Message):
             return
 
 
-@USER.on_message(filters.text & filters.private & filters.me)
+@ubot.on_message(filters.text & filters.private & filters.me)
 async def autopmPermiat(client: USER, message: Message):
     chat_id = message.chat.id
     if not chat_id in pchats:
@@ -48,7 +48,7 @@ async def autopmPermiat(client: USER, message: Message):
     message.continue_propagation()
 
 
-@USER.on_message(filters.command("a", [".", ""]) & filters.me & filters.private)
+@ubot.on_message(filters.command("a", [".", ""]) & filters.me & filters.private)
 async def pmPermiat(client: USER, message: Message):
     chat_id = message.chat.id
     if not chat_id in pchats:
@@ -58,7 +58,7 @@ async def pmPermiat(client: USER, message: Message):
     message.continue_propagation()
 
 
-@USER.on_message(filters.command("da", [".", ""]) & filters.me & filters.private)
+@ubot.on_message(filters.command("da", [".", ""]) & filters.me & filters.private)
 async def rmpmPermiat(client: USER, message: Message):
     chat_id = message.chat.id
     if chat_id in pchats:
