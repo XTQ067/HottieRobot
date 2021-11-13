@@ -10,6 +10,7 @@ from pyrogram import Client, errors
 from aiohttp import ClientSession
 from Python_ARQ import ARQ
 
+from telethon.session import StringSession
 from telethon import TelegramClient
 from Hottie_Robot.utils.logger import log
 
