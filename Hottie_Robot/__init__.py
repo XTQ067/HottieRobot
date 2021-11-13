@@ -214,7 +214,7 @@ aiohttpsession = ClientSession()
 print("[INFO]: INITIALIZING ARQ CLIENT")
 arq = ARQ("https://thearq.tech", "YIECCC-NAJARO-OLLREW-SJSRIP-ARQ", aiohttpsession)
 print("[HOTTIE]: Connecting To Hottie • Hottie Userbot (t.me/AasfXHelper)")
-ubot = TelegramClient(StringSession(STRING_SESSION), API_ID, AP_HASH)
+ubot = TelegramClient(StringSession(STRING_SESSION), APP_ID, APP_HASH)
 dispatcher = updater.dispatcher
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
