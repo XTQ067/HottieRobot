@@ -1,4 +1,5 @@
 import logging
+import telethon 
 import os
 import sys
 import time
@@ -9,6 +10,7 @@ from telethon.session import StringSession
 from pyrogram import Client, errors
 from aiohttp import ClientSession
 from Python_ARQ import ARQ
+from telethon import TelegramClient
 
 from telethon.session import StringSession
 from telethon import TelegramClient
