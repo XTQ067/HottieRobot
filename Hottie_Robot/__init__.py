@@ -6,7 +6,7 @@ import time
 import spamwatch
 import telegram.ext as tg
 from redis import StrictRedis
-from telethon.session import StringSession
+from telethon.sessions import StringSession
 from pyrogram import Client, errors
 from aiohttp import ClientSession
 from Python_ARQ import ARQ
