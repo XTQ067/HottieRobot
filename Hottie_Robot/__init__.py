@@ -86,7 +86,7 @@ if ENV:
     NO_LOAD = os.environ.get("NO_LOAD", "translation").split()
     DEL_CMDS = bool(os.environ.get("DEL_CMDS", False))
     STRICT_GBAN = bool(os.environ.get("STRICT_GBAN", False))
-    PMSTART = bool(os.environ.get("PMSTART", False))
+    PMPERMIT = bool(os.environ.get("PMPERMIT", False))
     STRING_SESSION = os.environ.get(
         "STRING_SESSION", None
     )  # Telethon Based String Session (2nd ID) [ From https://repl.it/@SpEcHiDe/GenerateStringSession ]
@@ -169,7 +169,7 @@ else:
     NO_LOAD = Config.NO_LOAD
     DEL_CMDS = Config.DEL_CMDS
     STRICT_GBAN = Config.STRICT_GBAN
-    PMSTART = Config.PMSTART
+    PMPERMIT = Config.PMPERMIT
     STRING_SESSION = Config.STRING_SESSION
     WORKERS = Config.WORKERS
     BAN_STICKER = Config.BAN_STICKER
