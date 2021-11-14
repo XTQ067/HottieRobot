@@ -124,7 +124,7 @@ Main commands available[.](https://telegra.ph/file/3ee000660b88822e880d1.jpg)
 )
 
 HELP_MSG = "Click the button below to get help manu in your pm."
-HOTTIE_IMG = "https://telegra.ph/file/034f7af441c73da64fda1.jpg"
+HOTTIE_IMG = "https://telegra.ph/file/48661a66869081422beb9.jpg"
 HELP_IMG = "https://telegra.ph/file/3ee000660b88822e880d1.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
