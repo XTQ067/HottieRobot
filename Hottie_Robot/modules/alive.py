@@ -64,7 +64,7 @@ async def hmm(yes):
     pm_caption = f"** ♡ Hey {yes.sender.first_name} I,m Hottie **\n\n"
     pm_caption += f"**♡ My Uptime :** `{uptime}`\n\n"
     pm_caption += f"**♡ Telethon Version :** `{version.__version__}`\n\n"
-    pm_caption += "**♡ My Master :** [Δŕyαŋ](https://t.me/Storm_terror)/[Kishore](https://t.me/@AASFCYBERKING) "
+    pm_caption += "**♡ My Master :** [Δŕyαŋ](https://t.me/Storm_terror)|[Kishore](https://t.me/AASFCYBERKING) "
     BUTTON = [
         [
             Button.url("【►Sᴜᴘᴘᴏʀᴛ◄】", "https://t.me/Hottie_support"),
