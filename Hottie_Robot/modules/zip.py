@@ -44,9 +44,8 @@ async def _(event):
     if not event.is_reply:
         await event.reply("Reply to a file to compress it.")
         return
-    if (
-        event.is_group
-        and not (await is_register_admin(event.input_chat, event.message.sender_id))
+    if event.is_group and not (
+        await is_register_admin(event.input_chat, event.message.sender_id)
     ):
         await event.reply(
             "Hey, You are not admin. You can't use this command, But you can use in my pm 🙂"
@@ -85,6 +84,7 @@ def zipdir(path, ziph):
             ziph.write(os.path.join(root, file))
             os.remove(os.path.join(root, file))
 
+
 extracted = TEMP_DOWNLOAD_DIRECTORY + "extracted/"
 thumb_image_path = TEMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
 if not os.path.isdir(extracted):
@@ -121,9 +121,8 @@ async def _(event):
     if not event.is_reply:
         await event.reply("Reply to a zip file.")
         return
-    if (
-        event.is_group
-        and not (await is_register_admin(event.input_chat, event.message.sender_id))
+    if event.is_group and not (
+        await is_register_admin(event.input_chat, event.message.sender_id)
     ):
         await event.reply(
             "Hey, You are not admin. You can't use this command, But you can use in my pm 🙂"
@@ -161,7 +160,11 @@ async def _(event):
                     metadata = extractMetadata(createParser(single_file))
                     width = 0
                     height = 0
-                    duration = metadata.get("duration").seconds if metadata.has("duration") else 0
+                    duration = (
+                        metadata.get("duration").seconds
+                        if metadata.has("duration")
+                        else 0
+                    )
                     if os.path.exists(thumb_image_path):
                         metadata = extractMetadata(createParser(thumb_image_path))
                         if metadata.has("width"):
