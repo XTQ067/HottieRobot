@@ -99,6 +99,7 @@ if ENV:
     AI_API_KEY = os.environ.get("AI_API_KEY", None)
     REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
     WALL_API = os.environ.get("WALL_API", None)
+    YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
     SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", None)
     SPAMWATCH_SUPPORT_CHAT = os.environ.get("SPAMWATCH_SUPPORT_CHAT", None)
     SPAMWATCH_API = os.environ.get("SPAMWATCH_API", None)
@@ -180,6 +181,7 @@ else:
     AI_API_KEY = Config.AI_API_KEY
     REM_BG_API_KEY = Config.REM_BG_API_KEY
     WALL_API = Config.WALL_API
+    YOUTUBE_API_KEY = Config.YOUTUBE_API_KEY
     SUPPORT_CHAT = Config.SUPPORT_CHAT
     SPAMWATCH_SUPPORT_CHAT = Config.SPAMWATCH_SUPPORT_CHAT
     SPAMWATCH_API = Config.SPAMWATCH_API
