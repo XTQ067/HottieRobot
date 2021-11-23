@@ -1,4 +1,5 @@
 import wikipedia
+
 from Hottie_Robot import dispatcher
 from Hottie_Robot.modules.disable import DisableAbleCommandHandler
 from telegram import ParseMode, Update
@@ -6,13 +7,8 @@ from telegram.ext import CallbackContext, run_async
 from wikipedia.exceptions import DisambiguationError, PageError
 
 
-@run_async
 def wiki(update: Update, context: CallbackContext):
-    msg = (
-        update.effective_message.reply_to_message
-        if update.effective_message.reply_to_message
-        else update.effective_message
-    )
+    msg = update.effective_message.reply_to_message or update.effective_message
     res = ""
     if msg == update.effective_message:
         search = msg.text.split(" ", maxsplit=1)[1]
@@ -23,13 +19,13 @@ def wiki(update: Update, context: CallbackContext):
     except DisambiguationError as e:
         update.message.reply_text(
             "Disambiguated pages found! Adjust your query accordingly.\n<i>{}</i>".format(
-                e
+                e,
             ),
             parse_mode=ParseMode.HTML,
         )
     except PageError as e:
         update.message.reply_text(
-            "<code>{}</code>".format(e), parse_mode=ParseMode.HTML
+            "<code>{}</code>".format(e), parse_mode=ParseMode.HTML,
         )
     if res:
         result = f"<b>{search}</b>\n\n"
@@ -48,9 +44,9 @@ def wiki(update: Update, context: CallbackContext):
                 )
         else:
             update.message.reply_text(
-                result, parse_mode=ParseMode.HTML, disable_web_page_preview=True
+                result, parse_mode=ParseMode.HTML, disable_web_page_preview=True,
             )
 
 
-WIKI_HANDLER = DisableAbleCommandHandler("wiki", wiki)
+WIKI_HANDLER = DisableAbleCommandHandler("wiki", wiki, run_async=True)
 dispatcher.add_handler(WIKI_HANDLER)
