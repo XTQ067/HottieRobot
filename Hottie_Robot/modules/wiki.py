@@ -6,7 +6,7 @@ from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, run_async
 from wikipedia.exceptions import DisambiguationError, PageError
 
-
+@run_async
 def wiki(update: Update, context: CallbackContext):
     msg = update.effective_message.reply_to_message or update.effective_message
     res = ""
@@ -48,5 +48,5 @@ def wiki(update: Update, context: CallbackContext):
             )
 
 
-WIKI_HANDLER = DisableAbleCommandHandler("wiki", wiki, run_async=True)
+WIKI_HANDLER = DisableAbleCommandHandler("wiki", wiki)
 dispatcher.add_handler(WIKI_HANDLER)
