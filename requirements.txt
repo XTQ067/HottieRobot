@@ -82,7 +82,7 @@ secureme
 better_profanity
 pydub
 nudepy
-nekos
+nekos.py
 textblob
 requests_html
 bs4
