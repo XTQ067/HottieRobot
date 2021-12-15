@@ -5,34 +5,47 @@ import sys
 import time
 import spamwatch
 import telegram.ext as tg
+import asyncio
+
 from redis import StrictRedis
 from telethon.sessions import StringSession
 from pyrogram import Client, errors
 from aiohttp import ClientSession
 from Python_ARQ import ARQ
 from telethon import TelegramClient
-
 from telethon.sessions import StringSession
 from telethon import TelegramClient
 from Hottie_Robot.utils.logger import log
+from ptbcontrib.postgres_persistence import PostgresPersistence
 
 StartTime = time.time()
 
+def get_user_list(__init__, key):
+    with open("{}/Hottie_Robot/{}".format(os.getcwd(), __init__), "r") as json_file:
+        return json.load(json_file)[key]
+
 # enable logging
+FORMAT = "[Hottie] %(message)s"
 logging.basicConfig(
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     handlers=[logging.FileHandler("log.txt"), logging.StreamHandler()],
     level=logging.INFO,
+    format=FORMAT,
+    datefmt="[%X]",
 )
+logging.getLogger("pyrogram").setLevel(logging.INFO)
+logging.getLogger('ptbcontrib.postgres_persistence.postgrespersistence').setLevel(logging.WARNING)
 
-LOGGER = logging.getLogger(__name__)
+LOGGER = logging.getLogger('[Hottie]')
+LOGGER.info("Hottie Robot is starting. | An Kishore Project Parts. | Licensed under GPLv3.")
+LOGGER.info("Not affiliated to Tantei Wa Mou or Villain in any way whatsoever.")
+LOGGER.info("Project maintained by: github.com/AASFCYBERKING (t.me/AASFCYBERKING)")
 
-# if version < 3.6, stop bot.
-if sys.version_info[0] < 3 or sys.version_info[1] < 6:
+# if version < 3.9, stop bot.
+if sys.version_info[0] < 3 or sys.version_info[1] < 9:
     LOGGER.error(
         "You MUST have a python version of at least 3.6! Multiple features depend on this. Bot quitting."
     )
-    quit(1)
+    sys.exit(1)
 
 ENV = bool(os.environ.get("ENV", False))
 
@@ -48,23 +61,23 @@ if ENV:
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", None)
 
     try:
-        DRAGONS = set(int(x) for x in os.environ.get("DRAGONS", "").split())
-        DEV_USERS = set(int(x) for x in os.environ.get("DEV_USERS", "").split())
+        DRAGONS = {int(x) for x in os.environ.get("DRAGONS", "").split()}
+        DEV_USERS = {int(x) for x in os.environ.get("DEV_USERS", "").split()}
     except ValueError:
         raise Exception("Your sudo or dev users list does not contain valid integers.")
 
     try:
-        DEMONS = set(int(x) for x in os.environ.get("DEMONS", "").split())
+        DEMONS = {int(x) for x in os.environ.get("DEMONS", "").split()}
     except ValueError:
         raise Exception("Your support users list does not contain valid integers.")
 
     try:
-        WOLVES = set(int(x) for x in os.environ.get("WOLVES", "").split())
+        WOLVES = {int(x) for x in os.environ.get("WOLVES", "").split()}
     except ValueError:
         raise Exception("Your whitelisted users list does not contain valid integers.")
 
     try:
-        TIGERS = set(int(x) for x in os.environ.get("TIGERS", "").split())
+        TIGERS = {int(x) for x in os.environ.get("TIGERS", "").split()}
     except ValueError:
         raise Exception("Your tiger users list does not contain valid integers.")
 
@@ -114,7 +127,7 @@ if ENV:
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
 
     try:
-        BL_CHATS = set(int(x) for x in os.environ.get("BL_CHATS", "").split())
+        BL_CHATS = {int(x) for x in os.environ.get("BL_CHATS", "").split()}
     except ValueError:
         raise Exception("Your blacklisted chats list does not contain valid integers.")
 
@@ -132,23 +145,23 @@ else:
     OWNER_USERNAME = Config.OWNER_USERNAME
 
     try:
-        DRAGONS = set(int(x) for x in Config.DRAGONS or [])
-        DEV_USERS = set(int(x) for x in Config.DEV_USERS or [])
+        DRAGONS = {int(x) for x in Config.DRAGONS or []}
+        DEV_USERS = {int(x) for x in Config.DEV_USERS or []}
     except ValueError:
         raise Exception("Your sudo or dev users list does not contain valid integers.")
 
     try:
-        DEMONS = set(int(x) for x in Config.DEMONS or [])
+        DEMONS = {int(x) for x in Config.DEMONS or []}
     except ValueError:
         raise Exception("Your support users list does not contain valid integers.")
 
     try:
-        WOLVES = set(int(x) for x in Config.WOLVES or [])
+        WOLVES = {int(x) for x in Config.WOLVES or []}
     except ValueError:
         raise Exception("Your whitelisted users list does not contain valid integers.")
 
     try:
-        TIGERS = set(int(x) for x in Config.TIGERS or [])
+        TIGERS = {int(x) for x in Config.TIGERS or []}
     except ValueError:
         raise Exception("Your tiger users list does not contain valid integers.")
 
@@ -188,7 +201,7 @@ else:
     INFOPIC = Config.INFOPIC
 
     try:
-        BL_CHATS = set(int(x) for x in Config.BL_CHATS or [])
+        BL_CHATS = {int(x) for x in Config.BL_CHATS or []}
     except ValueError:
         raise Exception("Your blacklisted chats list does not contain valid integers.")
 
@@ -197,33 +210,23 @@ DEV_USERS.add(OWNER_ID)
 
 if not SPAMWATCH_API:
     sw = None
-    LOGGER.warning("[HOTTIE ERROR]: SpamWatch API key Is Missing! Recheck Your Config.")
+    LOGGER.warning("SpamWatch API key Is Missing! Recheck Your Config.")
 else:
     try:
         sw = spamwatch.Client(SPAMWATCH_API)
     except:
         sw = None
-        LOGGER.warning("[HOTTIE ERROR]: Can't connect to SpamWatch!")
-
-# Credits Logger
-print("[HOTTIE] HOTTIE Is Starting. | Hottie • Project | Licensed Under GPLv3.")
-print(
-    "[HOTTIE] Hot Hottie! Successfully Connected With A  Hottie • Data Center • Tamil Nadu"
-)
-print("[HOTTIE] Project Maintained By: github.com/AASFCYBERKING (t.me/AASFCYBERKING)")
+        LOGGER.warning("Can't connect to SpamWatch!")
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
-print("[HOTTIE]: TELETHON CLIENT STARTING")
 telethn = TelegramClient("HottieRobot", API_ID, API_HASH)
 pbot = Client("HottiePyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
-print("[INFO]: INITIALZING AIOHTTP SESSION")
 aiohttpsession = ClientSession()
 # ARQ Client
-print("[INFO]: INITIALIZING ARQ CLIENT")
 arq = ARQ("https://thearq.tech", "YIECCC-NAJARO-OLLREW-SJSRIP-ARQ", aiohttpsession)
-print("[HOTTIE]: Connecting To Hottie • Hottie Userbot (t.me/AasfXHelper)")
 ubot = TelegramClient(StringSession(STRING_SESSION), APP_ID, APP_HASH)
 dispatcher = updater.dispatcher
+loop = asyncio.get_event_loop()
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
 DEV_USERS = list(DEV_USERS)
