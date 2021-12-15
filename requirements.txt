@@ -2,6 +2,7 @@ alphabet-detector
 bleach
 cachetools
 CurrencyConverter
+coffeehouse
 cairosvg
 cloudscraper
 colour
