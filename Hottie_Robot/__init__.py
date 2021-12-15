@@ -92,7 +92,8 @@ if ENV:
     API_HASH = os.environ.get("API_HASH", None)
     APP_HASH = os.environ.get("APP_HASH", None)
     BOT_ID = os.environ.get("BOT_ID", None)
-    DB_URI = os.environ.get("DATABASE_URL")
+    DB_URL = os.environ.get("DATABASE_URL")
+    DB_URL = DB_URL.replace("postgres://", "postgresql://", 1)
     MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
     DONATION_LINK = os.environ.get("DONATION_LINK")
     LOAD = os.environ.get("LOAD", "").split()
@@ -176,7 +177,7 @@ else:
     APP_HASH = Config.APP_HASH
     BOT_ID = Config.BOT_ID
 
-    DB_URI = Config.SQLALCHEMY_DATABASE_URI
+    DB_URL = Config.SQLALCHEMY_DATABASE_URI
     MONGO_DB_URI = Config.MONGO_DB_URI
     DONATION_LINK = Config.DONATION_LINK
     LOAD = Config.LOAD
