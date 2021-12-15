@@ -64,7 +64,7 @@ async def alive_functions(client, query):
 **Platform:** `{sys.platform}`
 **Profiles:** [BOT](t.me/Hottie_Robot)
 """,
-                    photo_url="https://telegra.ph/file/2c9e0efe2f240b53bd08d.jpg",
+                    photo_url="https://telegra.ph/file/1600847b25444cd6b61fa.jpg",
                     parse_mode=ParseMode.MARKDOWN,
                     title="Alive",
                     description="Check Bot's Stats!",
@@ -97,7 +97,7 @@ async def inline_query_handler(client, query):
             results=[
                 InlineQueryResultPhoto(
                     caption="Hey! I have an inline mode, click the buttons below to start your exploration!",
-                    photo_url="https://telegra.ph/file/9a9517a5bd2ebade4d851.jpg",
+                    photo_url="https://telegra.ph/file/1600847b25444cd6b61fa.jpg",
                     parse_mode="html",
                     title="Need Help?",
                     description="Click Here!",
