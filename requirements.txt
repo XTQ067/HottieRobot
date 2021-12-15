@@ -104,6 +104,7 @@ carbonnow
 search_engine_parser
 googletrans
 youtube_search_python
+youtube_dl
 httpx
 asyncio
 quotefancy
