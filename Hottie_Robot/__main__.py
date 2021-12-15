@@ -78,7 +78,7 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-────「 [{}](https://telegra.ph/file/cd16aa81b400680c9ed9c.jpg) 」────
+────「 [{}](https://telegra.ph/file/7153ff6d5a0e2711f24d7.jpg) 」────
 *Whassup! {},*
 *I am an Anime themed advance group management bot with a lot of Hot Features.*
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
@@ -109,7 +109,7 @@ buttons = [
 
 
 HELP_STRINGS = """
-Main commands available[.](https://telegra.ph/file/32ed97ad862fccbca1765.jpg)
+Main commands available[.](https://telegra.ph//file/81b18388bd4bcde77af22.jpg)
  ➢ /help: PM's you this message.
  ➢ /help <module name>: PM's you info about that module.
  ➢ /donate: information on how to donate!
