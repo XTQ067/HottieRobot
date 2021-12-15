@@ -1,6 +1,6 @@
 import sys
 
-from Natsunagi import LOAD, LOGGER, NO_LOAD
+from Hottie_Robot import LOAD, LOGGER, NO_LOAD
 
 
 def __list_all_modules():
