@@ -78,9 +78,9 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-────「 [{}](https://telegra.ph/file/7cab440852751e60368c1.jpg) 」────
+────「 [{}](https://telegra.ph/file/cd16aa81b400680c9ed9c.jpg) 」────
 *Whassup! {},*
-*I am an Anime themed advance group management bot with a lot of Sexy Features.*
+*I am an Anime themed advance group management bot with a lot of Hot Features.*
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
 • *Uptime:* `{}`
 • `{}` *users, across* `{}` *chats.*
@@ -102,14 +102,14 @@ buttons = [
         InlineKeyboardButton(text="[► Inline ◄]", switch_inline_query_current_chat=""),
     ],
     [
-        InlineKeyboardButton(text="🚑 Support", url=f"https://t.me/{SUPPORT_CHAT}"),
-        InlineKeyboardButton(text="📢 Updates", url="https://t.me/Hottie_Updates"),
+        InlineKeyboardButton(text="❄️ Support", url=f"https://t.me/{SUPPORT_CHAT}"),
+        InlineKeyboardButton(text="☃️ Updates", url="https://t.me/Hottie_Updates"),
     ],
 ]
 
 
 HELP_STRINGS = """
-Main commands available[.](https://telegra.ph/file/3ee000660b88822e880d1.jpg)
+Main commands available[.](https://telegra.ph/file/32ed97ad862fccbca1765.jpg)
  ➢ /help: PM's you this message.
  ➢ /help <module name>: PM's you info about that module.
  ➢ /donate: information on how to donate!
@@ -124,8 +124,8 @@ Main commands available[.](https://telegra.ph/file/3ee000660b88822e880d1.jpg)
 )
 
 HELP_MSG = "Click the button below to get help manu in your pm."
-HOTTIE_IMG = "https://telegra.ph/file/48661a66869081422beb9.jpg"
-HELP_IMG = "https://telegra.ph/file/3ee000660b88822e880d1.jpg"
+HOTTIE_IMG = "https://telegra.ph/file/08b3256ecac791444cbf2.jpg"
+HELP_IMG = "https://telegra.ph/file/69866f641bc97c73d146b.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
 Click here to donate in [Paypal](https://ko-fi.com/aasfcyberking)"""
