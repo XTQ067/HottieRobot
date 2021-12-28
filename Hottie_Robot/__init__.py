@@ -20,9 +20,11 @@ from ptbcontrib.postgres_persistence import PostgresPersistence
 
 StartTime = time.time()
 
+
 def get_user_list(__init__, key):
     with open("{}/Hottie_Robot/{}".format(os.getcwd(), __init__), "r") as json_file:
         return json.load(json_file)[key]
+
 
 # enable logging
 FORMAT = "[Hottie] %(message)s"
@@ -33,10 +35,14 @@ logging.basicConfig(
     datefmt="[%X]",
 )
 logging.getLogger("pyrogram").setLevel(logging.INFO)
-logging.getLogger('ptbcontrib.postgres_persistence.postgrespersistence').setLevel(logging.WARNING)
+logging.getLogger("ptbcontrib.postgres_persistence.postgrespersistence").setLevel(
+    logging.WARNING
+)
 
-LOGGER = logging.getLogger('[Hottie]')
-LOGGER.info("Hottie Robot is starting. | An Kishore Project Parts. | Licensed under GPLv3.")
+LOGGER = logging.getLogger("[Hottie]")
+LOGGER.info(
+    "Hottie Robot is starting. | An Kishore Project Parts. | Licensed under GPLv3."
+)
 LOGGER.info("Not affiliated to Tantei Wa Mou or Villain in any way whatsoever.")
 LOGGER.info("Project maintained by: github.com/AASFCYBERKING (t.me/AASFCYBERKING)")
 
