@@ -10,7 +10,6 @@ from Hottie_Robot.modules.disable import DisableAbleCommandHandler
 from Hottie_Robot.modules.helper_funcs.alternate import typing_action
 
 
-@run_async
 @typing_action
 def lyrics(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
@@ -51,6 +50,6 @@ __help__ = """
 __mod_name__ = "Lyrics"
 
 
-LYRICS_HANDLER = DisableAbleCommandHandler("lyrics", lyrics, pass_args=True)
+LYRICS_HANDLER = DisableAbleCommandHandler("lyrics", lyrics, pass_args=True, run_async=True)
 
 dispatcher.add_handler(LYRICS_HANDLER)
