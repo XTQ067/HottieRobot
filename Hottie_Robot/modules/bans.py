@@ -226,7 +226,6 @@ def temp_ban(update: Update, context: CallbackContext) -> str:
     return log_message
 
 
-
 @connection_status
 @bot_admin
 @can_restrict

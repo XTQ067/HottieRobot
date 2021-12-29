@@ -520,7 +520,9 @@ SHRUG_HANDLER = DisableAbleCommandHandler("shrug", shrug, run_async=True)
 DECIDE_HANDLER = DisableAbleMessageHandler(
     Filters.regex(r"(?i)(Liza|liza)"), decide, friendly="decide", run_async=True
 )
-ABUSE_HANDLER = DisableAbleCommandHandler("abuse", abuse, pass_args=True, run_async=True)
+ABUSE_HANDLER = DisableAbleCommandHandler(
+    "abuse", abuse, pass_args=True, run_async=True
+)
 RUNS_HANDLER = DisableAbleCommandHandler("runs", runs, pass_args=True, run_async=True)
 SLAP_HANDLER = DisableAbleCommandHandler("slap", slap, run_async=True)
 HUG_HANDLER = DisableAbleCommandHandler("hug", hug, run_async=True)
@@ -538,10 +540,14 @@ YESNOWTF_HANDLER = DisableAbleCommandHandler("decide", yesnowtf, run_async=True)
 GDMORNING_HANDLER = DisableAbleMessageHandler(
     Filters.regex(r"(?i)(goodmorning|good morning)"),
     goodmorning,
-    friendly="goodmorning", run_async=True
+    friendly="goodmorning",
+    run_async=True,
 )
 GDNIGHT_HANDLER = DisableAbleMessageHandler(
-    Filters.regex(r"(?i)(goodnight|good night)"), goodnight, friendly="goodnight", run_async=True
+    Filters.regex(r"(?i)(goodnight|good night)"),
+    goodnight,
+    friendly="goodnight",
+    run_async=True,
 )
 
 

@@ -50,6 +50,8 @@ __help__ = """
 __mod_name__ = "Lyrics"
 
 
-LYRICS_HANDLER = DisableAbleCommandHandler("lyrics", lyrics, pass_args=True, run_async=True)
+LYRICS_HANDLER = DisableAbleCommandHandler(
+    "lyrics", lyrics, pass_args=True, run_async=True
+)
 
 dispatcher.add_handler(LYRICS_HANDLER)
