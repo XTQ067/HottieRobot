@@ -1,7 +1,5 @@
 import threading
 
-from Hottie_Robot import dispatcher
-from Hottie_Robot.modules.sql import BASE, SESSION
 from sqlalchemy import (
     Column,
     ForeignKey,
@@ -11,6 +9,9 @@ from sqlalchemy import (
     UniqueConstraint,
     func,
 )
+
+from Hottie_Robot import dispatcher
+from Hottie_Robot.modules.sql import BASE, SESSION
 
 
 class Users(BASE):

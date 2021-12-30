@@ -1,28 +1,31 @@
 import html
 
-from telegram import Message, Chat, ParseMode, MessageEntity
-from telegram import TelegramError, ChatPermissions
+from alphabet_detector import AlphabetDetector
+from telegram import (
+    Chat,
+    ChatPermissions,
+    Message,
+    MessageEntity,
+    ParseMode,
+    TelegramError,
+)
 from telegram.error import BadRequest
-from telegram.ext import CommandHandler, MessageHandler, Filters
-from telegram.ext.dispatcher import run_async
+from telegram.ext import CommandHandler, Filters, MessageHandler
 from telegram.utils.helpers import mention_html
 
-from alphabet_detector import AlphabetDetector
-
 import Hottie_Robot.modules.sql.locks_sql as sql
-from Hottie_Robot import dispatcher, DRAGONS, LOGGER
+from Hottie_Robot import DRAGONS, LOGGER, dispatcher
+from Hottie_Robot.modules.connection import connected
 from Hottie_Robot.modules.disable import DisableAbleCommandHandler
+from Hottie_Robot.modules.helper_funcs.alternate import send_message, typing_action
 from Hottie_Robot.modules.helper_funcs.chat_status import (
     can_delete,
-    is_user_admin,
-    user_not_admin,
     is_bot_admin,
+    is_user_admin,
     user_admin,
+    user_not_admin,
 )
 from Hottie_Robot.modules.log_channel import loggable
-from Hottie_Robot.modules.connection import connected
-
-from Hottie_Robot.modules.helper_funcs.alternate import send_message, typing_action
 
 ad = AlphabetDetector()
 

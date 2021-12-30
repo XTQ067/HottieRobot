@@ -1,9 +1,5 @@
 from typing import Optional
 
-import Hottie_Robot.modules.sql.rules_sql as sql
-from Hottie_Robot import dispatcher
-from Hottie_Robot.modules.helper_funcs.chat_status import user_admin
-from Hottie_Robot.modules.helper_funcs.string_handling import markdown_parser
 from telegram import (
     InlineKeyboardButton,
     InlineKeyboardMarkup,
@@ -13,8 +9,13 @@ from telegram import (
     User,
 )
 from telegram.error import BadRequest
-from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
+from telegram.ext import CallbackContext, CommandHandler, Filters
 from telegram.utils.helpers import escape_markdown
+
+import Hottie_Robot.modules.sql.rules_sql as sql
+from Hottie_Robot import dispatcher
+from Hottie_Robot.modules.helper_funcs.chat_status import user_admin
+from Hottie_Robot.modules.helper_funcs.string_handling import markdown_parser
 
 
 def get_rules(update: Update, context: CallbackContext):

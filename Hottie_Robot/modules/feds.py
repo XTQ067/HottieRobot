@@ -6,25 +6,6 @@ import time
 import uuid
 from io import BytesIO
 
-import Hottie_Robot.modules.sql.feds_sql as sql
-from Hottie_Robot import (
-    EVENT_LOGS,
-    LOGGER,
-    OWNER_ID,
-    DRAGONS,
-    TIGERS,
-    WOLVES,
-    dispatcher,
-)
-from Hottie_Robot.modules.disable import DisableAbleCommandHandler
-from Hottie_Robot.modules.helper_funcs.alternate import send_message
-from Hottie_Robot.modules.helper_funcs.chat_status import is_user_admin
-from Hottie_Robot.modules.helper_funcs.extraction import (
-    extract_unt_fedban,
-    extract_user,
-    extract_user_fban,
-)
-from Hottie_Robot.modules.helper_funcs.string_handling import markdown_parser
 from telegram import (
     InlineKeyboardButton,
     InlineKeyboardMarkup,
@@ -40,6 +21,26 @@ from telegram.ext import (
     run_async,
 )
 from telegram.utils.helpers import mention_html, mention_markdown
+
+import Hottie_Robot.modules.sql.feds_sql as sql
+from Hottie_Robot import (
+    DRAGONS,
+    EVENT_LOGS,
+    LOGGER,
+    OWNER_ID,
+    TIGERS,
+    WOLVES,
+    dispatcher,
+)
+from Hottie_Robot.modules.disable import DisableAbleCommandHandler
+from Hottie_Robot.modules.helper_funcs.alternate import send_message
+from Hottie_Robot.modules.helper_funcs.chat_status import is_user_admin
+from Hottie_Robot.modules.helper_funcs.extraction import (
+    extract_unt_fedban,
+    extract_user,
+    extract_user_fban,
+)
+from Hottie_Robot.modules.helper_funcs.string_handling import markdown_parser
 
 # Hello bot owner, I spended for feds many hours of my life, Please don't remove this if you still respect MrYacha and peaktogoo and AyraHikari too
 # Federation by MrYacha 2018-2019
@@ -206,7 +207,7 @@ def rename_fed(update, context):
 def fed_chat(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     chat = update.effective_chat
-    user = update.effective_user
+    update.effective_user
     fed_id = sql.get_fed_id(chat.id)
 
     user_id = update.effective_message.from_user.id
@@ -220,7 +221,7 @@ def fed_chat(update: Update, context: CallbackContext):
         update.effective_message.reply_text("This group is not in any federation!")
         return
 
-    user = update.effective_user
+    update.effective_user
     chat = update.effective_chat
     info = sql.get_fed_info(fed_id)
 
@@ -1013,8 +1014,8 @@ def unfban(update: Update, context: CallbackContext):
         isvalid = True
         fban_user_id = user_chat.id
         fban_user_name = user_chat.first_name
-        fban_user_lname = user_chat.last_name
-        fban_user_uname = user_chat.username
+        user_chat.last_name
+        user_chat.username
     except BadRequest as excp:
         if not str(user_id).isdigit():
             send_message(update.effective_message, excp.message)
@@ -1025,8 +1026,6 @@ def unfban(update: Update, context: CallbackContext):
         isvalid = False
         fban_user_id = int(user_id)
         fban_user_name = "user({})".format(user_id)
-        fban_user_lname = None
-        fban_user_uname = None
 
     if isvalid and user_chat.type != "private":
         message.reply_text("That's so not a user!")
@@ -1042,7 +1041,7 @@ def unfban(update: Update, context: CallbackContext):
         message.reply_text("This user is not fbanned!")
         return
 
-    banner = update.effective_user
+    update.effective_user
 
     # message.reply_text("I'll give {} another chance in this federation".format(user_chat.first_name))
 
@@ -1631,7 +1630,7 @@ def fed_import_bans(update: Update, context: CallbackContext):
         return
 
     fed_id = sql.get_fed_id(chat.id)
-    info = sql.get_fed_info(fed_id)
+    sql.get_fed_info(fed_id)
     getfed = sql.get_fed_info(fed_id)
 
     if not fed_id:
@@ -1847,7 +1846,7 @@ def fed_import_bans(update: Update, context: CallbackContext):
 @run_async
 def del_fed_button(update: Update, context: CallbackContext):
     query = update.callback_query
-    userid = query.message.chat.id
+    query.message.chat.id
     fed_id = query.data.split("_")[1]
 
     if fed_id == "cancel":
@@ -1869,8 +1868,8 @@ def del_fed_button(update: Update, context: CallbackContext):
 @run_async
 def fed_stat_user(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
-    chat = update.effective_chat
-    user = update.effective_user
+    update.effective_chat
+    update.effective_user
     msg = update.effective_message
 
     if args:
@@ -1980,7 +1979,7 @@ def set_fed_log(update: Update, context: CallbackContext):
     args = context.args
     chat = update.effective_chat
     user = update.effective_user
-    msg = update.effective_message
+    update.effective_message
 
     if chat.type == "private":
         send_message(
@@ -2021,7 +2020,7 @@ def unset_fed_log(update: Update, context: CallbackContext):
     args = context.args
     chat = update.effective_chat
     user = update.effective_user
-    msg = update.effective_message
+    update.effective_message
 
     if chat.type == "private":
         send_message(
@@ -2062,7 +2061,7 @@ def subs_feds(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     chat = update.effective_chat
     user = update.effective_user
-    msg = update.effective_message
+    update.effective_message
 
     if chat.type == "private":
         send_message(
@@ -2127,7 +2126,7 @@ def unsubs_feds(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     chat = update.effective_chat
     user = update.effective_user
-    msg = update.effective_message
+    update.effective_message
 
     if chat.type == "private":
         send_message(
@@ -2189,10 +2188,10 @@ def unsubs_feds(update: Update, context: CallbackContext):
 
 @run_async
 def get_myfedsubs(update: Update, context: CallbackContext):
-    args = context.args
+    context.args
     chat = update.effective_chat
     user = update.effective_user
-    msg = update.effective_message
+    update.effective_message
 
     if chat.type == "private":
         send_message(
@@ -2240,9 +2239,9 @@ def get_myfedsubs(update: Update, context: CallbackContext):
 
 @run_async
 def get_myfeds_list(update: Update, context: CallbackContext):
-    chat = update.effective_chat
+    update.effective_chat
     user = update.effective_user
-    msg = update.effective_message
+    update.effective_message
 
     fedowner = sql.get_user_owner_fed_full(user.id)
     if fedowner:

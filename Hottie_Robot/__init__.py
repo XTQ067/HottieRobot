@@ -1,22 +1,21 @@
+import asyncio
 import logging
-import telethon
 import os
 import sys
 import time
+
 import spamwatch
 import telegram.ext as tg
-import asyncio
-
-from redis import StrictRedis
-from telethon.sessions import StringSession
-from pyrogram import Client, errors
+import telethon
 from aiohttp import ClientSession
+from ptbcontrib.postgres_persistence import PostgresPersistence
+from pyrogram import Client, errors
 from Python_ARQ import ARQ
+from redis import StrictRedis
 from telethon import TelegramClient
 from telethon.sessions import StringSession
-from telethon import TelegramClient
+
 from Hottie_Robot.utils.logger import log
-from ptbcontrib.postgres_persistence import PostgresPersistence
 
 StartTime = time.time()
 

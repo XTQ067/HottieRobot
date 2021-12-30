@@ -3,6 +3,27 @@ import re
 from typing import Optional
 
 import telegram
+from telegram import (
+    CallbackQuery,
+    Chat,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    Message,
+    ParseMode,
+    Update,
+    User,
+)
+from telegram.error import BadRequest
+from telegram.ext import (
+    CallbackContext,
+    CallbackQueryHandler,
+    CommandHandler,
+    DispatcherHandlerStop,
+    Filters,
+    MessageHandler,
+)
+from telegram.utils.helpers import mention_html
+
 from Hottie_Robot import TIGERS, WOLVES, dispatcher
 from Hottie_Robot.modules.disable import DisableAbleCommandHandler
 from Hottie_Robot.modules.helper_funcs.chat_status import (
@@ -22,27 +43,6 @@ from Hottie_Robot.modules.helper_funcs.misc import split_message
 from Hottie_Robot.modules.helper_funcs.string_handling import split_quotes
 from Hottie_Robot.modules.log_channel import loggable
 from Hottie_Robot.modules.sql import warns_sql as sql
-from telegram import (
-    CallbackQuery,
-    Chat,
-    InlineKeyboardButton,
-    InlineKeyboardMarkup,
-    Message,
-    ParseMode,
-    Update,
-    User,
-)
-from telegram.error import BadRequest
-from telegram.ext import (
-    CallbackContext,
-    CallbackQueryHandler,
-    CommandHandler,
-    DispatcherHandlerStop,
-    Filters,
-    MessageHandler,
-    run_async,
-)
-from telegram.utils.helpers import mention_html
 
 WARN_HANDLER_GROUP = 9
 CURRENT_WARNING_FILTER_STRING = "<b>Current warning filters in this chat:</b>\n"
@@ -242,7 +242,7 @@ def rmwarn_cmd(update: Update, context: CallbackContext) -> str:
             reply_text = f"This user has {num_warns}/{limit} warns."
             try:
                 message.reply_text(reply_text, reply_markup=keyboard)
-            except BadRequest as err:
+            except BadRequest:
                 message.reply_text(reply_text, reply_markup=keyboard, quote=False)
         else:
             message.reply_text("This user doesn't have any warns.")

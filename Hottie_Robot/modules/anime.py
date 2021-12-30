@@ -5,10 +5,11 @@ import textwrap
 import bs4
 import jikanpy
 import requests
-from Hottie_Robot import DEV_USERS, OWNER_ID, DRAGONS, dispatcher
-from Hottie_Robot.modules.disable import DisableAbleCommandHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
-from telegram.ext import CallbackContext, CallbackQueryHandler, run_async
+from telegram.ext import CallbackContext, CallbackQueryHandler
+
+from Hottie_Robot import DEV_USERS, DRAGONS, OWNER_ID, dispatcher
+from Hottie_Robot.modules.disable import DisableAbleCommandHandler
 
 info_btn = "More Information"
 kaizoku_btn = "Kaizoku ☠️"
@@ -208,7 +209,7 @@ def anime(update: Update, context: CallbackContext):
         msg = msg[:-2] + "`\n"
         info = json.get("siteUrl")
         trailer = json.get("trailer", None)
-        anime_id = json["id"]
+        json["id"]
         if trailer:
             trailer_id = trailer.get("id", None)
             site = trailer.get("site", None)

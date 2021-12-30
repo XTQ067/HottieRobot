@@ -1,3 +1,7 @@
+from telegram import ChatPermissions, Update
+from telegram.error import BadRequest
+from telegram.ext import CallbackContext, CommandHandler
+
 from Hottie_Robot import dispatcher
 from Hottie_Robot.modules.helper_funcs.chat_status import (
     bot_admin,
@@ -7,9 +11,6 @@ from Hottie_Robot.modules.helper_funcs.chat_status import (
 )
 from Hottie_Robot.modules.helper_funcs.extraction import extract_user_and_text
 from Hottie_Robot.modules.helper_funcs.filters import CustomFilters
-from telegram import Update, ChatPermissions
-from telegram.error import BadRequest
-from telegram.ext import CallbackContext, CommandHandler, run_async
 
 RBAN_ERRORS = {
     "User is an administrator of the chat",
@@ -209,7 +210,7 @@ def runban(update: Update, context: CallbackContext):
         return
 
     try:
-        member = chat.get_member(user_id)
+        chat.get_member(user_id)
     except BadRequest as excp:
         if excp.message == "User not found":
             message.reply_text("I can't seem to find this user there")

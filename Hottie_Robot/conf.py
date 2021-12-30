@@ -1,4 +1,5 @@
 from envparse import env
+
 from Hottie_Robot import LOGGER
 
 DEFAULTS = {

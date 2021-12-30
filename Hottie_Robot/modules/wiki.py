@@ -1,11 +1,10 @@
 import wikipedia
+from telegram import ParseMode, Update
+from telegram.ext import CallbackContext
+from wikipedia.exceptions import DisambiguationError, PageError
 
 from Hottie_Robot import dispatcher
 from Hottie_Robot.modules.disable import DisableAbleCommandHandler
-
-from telegram import ParseMode, Update
-from telegram.ext import CallbackContext, run_async
-from wikipedia.exceptions import DisambiguationError, PageError
 
 
 def wiki(update: Update, context: CallbackContext):

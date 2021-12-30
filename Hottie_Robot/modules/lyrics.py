@@ -1,9 +1,8 @@
 # Simple lyrics module using tswift by @TheRealPhoenix
 
+from telegram import Update
+from telegram.ext import CallbackContext
 from tswift import Song
-
-from telegram import Bot, Update, Message, Chat
-from telegram.ext import CallbackContext, run_async
 
 from Hottie_Robot import dispatcher
 from Hottie_Robot.modules.disable import DisableAbleCommandHandler

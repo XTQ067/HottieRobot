@@ -1,17 +1,7 @@
 import html
-from typing import Optional, List
+from typing import Optional
 
-from telegram import Message, Chat, Update, User, ChatPermissions
-
-from Hottie_Robot import TIGERS, WOLVES, dispatcher
-from Hottie_Robot.modules.helper_funcs.chat_status import (
-    bot_admin,
-    is_user_admin,
-    user_admin,
-    user_admin_no_reply,
-)
-from Hottie_Robot.modules.log_channel import loggable
-from Hottie_Robot.modules.sql import antiflood_sql as sql
+from telegram import Chat, ChatPermissions, Message, Update, User
 from telegram.error import BadRequest
 from telegram.ext import (
     CallbackContext,
@@ -19,12 +9,21 @@ from telegram.ext import (
     CommandHandler,
     Filters,
     MessageHandler,
-    run_async,
 )
-from telegram.utils.helpers import mention_html, escape_markdown
-from Hottie_Robot.modules.helper_funcs.string_handling import extract_time
+from telegram.utils.helpers import mention_html
+
+from Hottie_Robot import TIGERS, WOLVES, dispatcher
 from Hottie_Robot.modules.connection import connected
 from Hottie_Robot.modules.helper_funcs.alternate import send_message
+from Hottie_Robot.modules.helper_funcs.chat_status import (
+    bot_admin,
+    is_user_admin,
+    user_admin,
+    user_admin_no_reply,
+)
+from Hottie_Robot.modules.helper_funcs.string_handling import extract_time
+from Hottie_Robot.modules.log_channel import loggable
+from Hottie_Robot.modules.sql import antiflood_sql as sql
 
 FLOOD_GROUP = 3
 

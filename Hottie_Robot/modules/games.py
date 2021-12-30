@@ -1,16 +1,11 @@
-import html
 import random
-import time
 
-from telegram import ParseMode, Update, ChatPermissions
-from telegram.ext import CallbackContext, run_async
-from telegram.error import BadRequest
+from telegram import Update
+from telegram.ext import CallbackContext
 
 import Hottie_Robot.modules.game_strings as game_strings
 from Hottie_Robot import dispatcher
 from Hottie_Robot.modules.disable import DisableAbleCommandHandler
-from Hottie_Robot.modules.helper_funcs.chat_status import is_user_admin
-from Hottie_Robot.modules.helper_funcs.extraction import extract_user
 
 
 def truth(update: Update, context: CallbackContext):

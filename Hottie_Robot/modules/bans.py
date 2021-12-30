@@ -2,15 +2,15 @@ import html
 
 from telegram import ParseMode, Update
 from telegram.error import BadRequest
-from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
+from telegram.ext import CallbackContext, CommandHandler, Filters
 from telegram.utils.helpers import mention_html
 
 from Hottie_Robot import (
+    DEMONS,
     DEV_USERS,
+    DRAGONS,
     LOGGER,
     OWNER_ID,
-    DRAGONS,
-    DEMONS,
     TIGERS,
     WOLVES,
     dispatcher,
@@ -18,6 +18,7 @@ from Hottie_Robot import (
 from Hottie_Robot.modules.disable import DisableAbleCommandHandler
 from Hottie_Robot.modules.helper_funcs.chat_status import (
     bot_admin,
+    can_delete,
     can_restrict,
     connection_status,
     is_user_admin,
@@ -25,7 +26,6 @@ from Hottie_Robot.modules.helper_funcs.chat_status import (
     is_user_in_chat,
     user_admin,
     user_can_ban,
-    can_delete,
 )
 from Hottie_Robot.modules.helper_funcs.extraction import extract_user_and_text
 from Hottie_Robot.modules.helper_funcs.string_handling import extract_time

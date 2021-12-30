@@ -1,6 +1,18 @@
 import sys
+
 import aiohttp
 import requests
+from motor import version as mongover
+from pyrogram import __version__ as pyrover
+from pyrogram.types import (
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    InlineQueryResultArticle,
+    InlineQueryResultPhoto,
+    InputTextMessageContent,
+)
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode
+
 from Hottie_Robot import pbot
 from Hottie_Robot.modules.anime import (
     airing_query,
@@ -10,16 +22,6 @@ from Hottie_Robot.modules.anime import (
     shorten,
     t,
     url,
-)
-from pyrogram import __version__ as pyrover
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
-from motor import version as mongover
-from pyrogram.types import (
-    InlineKeyboardButton,
-    InlineKeyboardMarkup,
-    InlineQueryResultArticle,
-    InlineQueryResultPhoto,
-    InputTextMessageContent,
 )
 
 app = pbot

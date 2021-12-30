@@ -1,39 +1,37 @@
 import html
-import re
 import os
-import requests
+import re
 import subprocess
 
+import requests
+from telegram import MAX_MESSAGE_LENGTH, ParseMode, Update
+from telegram.error import BadRequest
+from telegram.ext import CallbackContext, CommandHandler
+from telegram.utils.helpers import escape_markdown, mention_html
+from telethon import events
 from telethon.tl.functions.channels import GetFullChannelRequest
 from telethon.tl.types import ChannelParticipantsAdmins
-from telethon import events
 
-from telegram import MAX_MESSAGE_LENGTH, ParseMode, Update
-from telegram.ext import CallbackContext, CommandHandler
-from telegram.ext.dispatcher import run_async
-from telegram.error import BadRequest
-from telegram.utils.helpers import escape_markdown, mention_html
-
+import Hottie_Robot.modules.sql.userinfo_sql as sql
 from Hottie_Robot import (
-    DEV_USERS,
-    OWNER_ID,
-    DRAGONS,
     DEMONS,
+    DEV_USERS,
+    DRAGONS,
+    INFOPIC,
+    OWNER_ID,
     TIGERS,
     WOLVES,
-    INFOPIC,
     dispatcher,
     sw,
 )
+from Hottie_Robot import telethn as SaitamaTelethonClient
 from Hottie_Robot.__main__ import STATS, TOKEN, USER_INFO
-import Hottie_Robot.modules.sql.userinfo_sql as sql
 from Hottie_Robot.modules.disable import DisableAbleCommandHandler
-from Hottie_Robot.modules.sql.global_bans_sql import is_user_gbanned
-from Hottie_Robot.modules.sql.afk_sql import is_afk, check_afk_status
-from Hottie_Robot.modules.sql.users_sql import get_user_num_chats
 from Hottie_Robot.modules.helper_funcs.chat_status import sudo_plus
 from Hottie_Robot.modules.helper_funcs.extraction import extract_user
-from Hottie_Robot import telethn as SaitamaTelethonClient, TIGERS, DRAGONS, DEMONS
+from Hottie_Robot.modules.sql.afk_sql import check_afk_status, is_afk
+from Hottie_Robot.modules.sql.global_bans_sql import is_user_gbanned
+from Hottie_Robot.modules.sql.users_sql import get_user_num_chats
 
 
 def no_by_per(totalhp, percentage):

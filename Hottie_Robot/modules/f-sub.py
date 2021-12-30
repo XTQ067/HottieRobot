@@ -12,10 +12,8 @@ from pyrogram.errors.exceptions.bad_request_400 import (
 )
 from pyrogram.types import ChatPermissions, InlineKeyboardButton, InlineKeyboardMarkup
 
-from Hottie_Robot import BOT_ID
-
 # from Hottie_Robot import OWNER_ID as SUDO_USERS
-from Hottie_Robot import pbot
+from Hottie_Robot import BOT_ID, pbot
 from Hottie_Robot.modules.sql import fsub_sql as sql
 
 logging.basicConfig(level=logging.INFO)

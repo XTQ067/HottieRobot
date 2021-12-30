@@ -2,6 +2,7 @@
 
 import aiohttp
 from pyrogram import filters
+
 from Hottie_Robot import pbot as asuna
 
 
@@ -41,5 +42,4 @@ async def PokeDex(_, message):
 **Description:** `{description}`"""
             except Exception as e:
                 print(str(e))
-                pass
     await message.reply_photo(photo=poke_img, caption=caption)

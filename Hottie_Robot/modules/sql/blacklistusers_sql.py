@@ -1,7 +1,8 @@
 import threading
 
-from Hottie_Robot.modules.sql import BASE, SESSION
 from sqlalchemy import Column, String, UnicodeText
+
+from Hottie_Robot.modules.sql import BASE, SESSION
 
 
 class BlacklistUsers(BASE):

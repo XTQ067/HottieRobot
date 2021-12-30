@@ -1,32 +1,13 @@
-from pathlib import Path
-import asyncio, time, io, math, os, logging, asyncio, shutil, re, subprocess, json
-from re import findall
-from asyncio import sleep
-from telethon.events import NewMessage
-from telethon.tl.custom import Dialog
-from datetime import datetime as dt
-from pytz import country_names as c_n, country_timezones as c_tz, timezone as tz
-from hachoir.parser import createParser
-import pybase64
-from base64 import b64decode
-from pySmartDL import SmartDL
-from telethon.tl.types import DocumentAttributeVideo, DocumentAttributeAudio
-from telethon import events
+import asyncio
+import json
+import os
+import time
 
-from Hottie_Robot.events import register
-from Hottie_Robot.utils import progress
-from telethon.errors.rpcerrorlist import YouBlockedUserError
-from telethon.tl.functions.messages import ImportChatInviteRequest as Get
-from validators.url import url
-from html import unescape
-from urllib.error import HTTPError
-import bs4
-from bs4 import BeautifulSoup
+from telethon.tl.types import DocumentAttributeAudio
 from youtube_dl import YoutubeDL
-
 from youtube_dl.utils import (
-    DownloadError,
     ContentTooShortError,
+    DownloadError,
     ExtractorError,
     GeoRestrictedError,
     MaxDownloadsReached,
@@ -35,6 +16,9 @@ from youtube_dl.utils import (
     XAttrMetadataError,
 )
 
+from Hottie_Robot.events import register
+from Hottie_Robot.utils import progress
+
 try:
 
     from youtubesearchpython import SearchVideos
@@ -42,8 +26,6 @@ try:
 except:
     os.system("pip install pip install youtube-search-python")
     from youtubesearchpython import SearchVideos
-
-    pass
 
 
 @register(pattern="^/song (.*)")

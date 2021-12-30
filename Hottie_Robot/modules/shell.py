@@ -1,10 +1,10 @@
 import subprocess
 
-from Hottie_Robot import LOGGER, dispatcher
-from Hottie_Robot.modules.helper_funcs.chat_status import dev_plus
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, CommandHandler
-from telegram.ext.dispatcher import run_async
+
+from Hottie_Robot import LOGGER, dispatcher
+from Hottie_Robot.modules.helper_funcs.chat_status import dev_plus
 
 
 @dev_plus

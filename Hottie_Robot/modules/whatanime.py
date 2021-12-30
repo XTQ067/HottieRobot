@@ -1,16 +1,16 @@
-import os
-import time
-import html
-import aiohttp
 import asyncio
 import datetime
+import html
+import os
 import tempfile
-
-from urllib.parse import quote as urlencode
-from decimal import Decimal
+import time
 from datetime import timedelta
+from decimal import Decimal
+
+import aiohttp
 from pyrogram import Client, filters
-from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+
 from Hottie_Robot import pbot
 
 session = aiohttp.ClientSession()
@@ -85,7 +85,7 @@ async def whatanime(c: Client, m: Message):
             match = match[0]
             title_native = match["anilist"]["title"]["native"]
             title_english = match["anilist"]["title"]["english"]
-            title_romaji = match["anilist"]["title"]["romaji"]
+            match["anilist"]["title"]["romaji"]
             anilist_id = match["anilist"]["id"]
             episode = match["episode"]
             similarity = match["similarity"]

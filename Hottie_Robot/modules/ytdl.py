@@ -1,14 +1,11 @@
 import os
 import time
-import math
-import asyncio
-import shutil
-import requests
 
+from telethon.tl.types import DocumentAttributeAudio
 from yt_dlp import YoutubeDL
 from yt_dlp.utils import (
-    DownloadError,
     ContentTooShortError,
+    DownloadError,
     ExtractorError,
     GeoRestrictedError,
     MaxDownloadsReached,
@@ -16,13 +13,8 @@ from yt_dlp.utils import (
     UnavailableVideoError,
     XAttrMetadataError,
 )
-from asyncio import sleep
-from telethon.tl.types import DocumentAttributeAudio
-from collections import deque
-from html import unescape
 
 from Hottie_Robot.events import register
-from Hottie_Robot import YOUTUBE_API_KEY
 
 
 @register(pattern="^/yt(audio|video) (.*)")
@@ -103,7 +95,7 @@ async def download_video(v_url):
     except Exception as e:
         await lmao.edit(f"{str(type(e)): {e}}")
         return
-    c_time = time.time()
+    time.time()
     if song:
         await lmao.edit(
             f"`Preparing to upload song:`\

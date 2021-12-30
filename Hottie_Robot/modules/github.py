@@ -1,9 +1,9 @@
 # ©itsmelegend
 import aiohttp
 from pyrogram import filters
+
 from Hottie_Robot import pbot
 from Hottie_Robot.utils.errors import capture_err
-
 
 __mod_name__ = "Github"
 
@@ -47,5 +47,4 @@ async def github(_, message):
 **Following:** `{following}`"""
             except Exception as e:
                 print(str(e))
-                pass
     await message.reply_photo(photo=avatar_url, caption=caption)

@@ -1,9 +1,10 @@
 import random
 
+from telegram import Update
+from telegram.ext import CallbackContext
+
 from Hottie_Robot import dispatcher
 from Hottie_Robot.modules.disable import DisableAbleCommandHandler
-from telegram import Update
-from telegram.ext import CallbackContext, run_async
 
 reactions = [
     "( ͡° ͜ʖ ͡°)",

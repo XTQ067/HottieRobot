@@ -1,9 +1,5 @@
 import html
 
-from Hottie_Robot import LOGGER, DRAGONS, TIGERS, WOLVES, dispatcher
-from Hottie_Robot.modules.helper_funcs.chat_status import user_admin, user_not_admin
-from Hottie_Robot.modules.log_channel import loggable
-from Hottie_Robot.modules.sql import reporting_sql as sql
 from telegram import Chat, InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import BadRequest, Unauthorized
 from telegram.ext import (
@@ -12,9 +8,13 @@ from telegram.ext import (
     CommandHandler,
     Filters,
     MessageHandler,
-    run_async,
 )
 from telegram.utils.helpers import mention_html
+
+from Hottie_Robot import DRAGONS, LOGGER, TIGERS, WOLVES, dispatcher
+from Hottie_Robot.modules.helper_funcs.chat_status import user_admin, user_not_admin
+from Hottie_Robot.modules.log_channel import loggable
+from Hottie_Robot.modules.sql import reporting_sql as sql
 
 REPORT_GROUP = 12
 REPORT_IMMUNE_USERS = DRAGONS + TIGERS + WOLVES

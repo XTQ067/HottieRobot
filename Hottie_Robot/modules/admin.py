@@ -2,26 +2,25 @@ import html
 
 from telegram import ParseMode, Update
 from telegram.error import BadRequest
-from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
+from telegram.ext import CallbackContext, CommandHandler, Filters
 from telegram.utils.helpers import mention_html
 
 from Hottie_Robot import DRAGONS, dispatcher
 from Hottie_Robot.modules.disable import DisableAbleCommandHandler
+from Hottie_Robot.modules.helper_funcs.alternate import send_message
 from Hottie_Robot.modules.helper_funcs.chat_status import (
+    ADMIN_CACHE,
     bot_admin,
     can_pin,
     can_promote,
     connection_status,
     user_admin,
-    ADMIN_CACHE,
 )
-
 from Hottie_Robot.modules.helper_funcs.extraction import (
     extract_user,
     extract_user_and_text,
 )
 from Hottie_Robot.modules.log_channel import loggable
-from Hottie_Robot.modules.helper_funcs.alternate import send_message
 
 
 @connection_status
@@ -348,16 +347,16 @@ def invite(update: Update, context: CallbackContext):
 def adminlist(update, context):
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
-    args = context.args
+    context.args
     bot = context.bot
 
     if update.effective_message.chat.type == "private":
         send_message(update.effective_message, "This command only works in Groups.")
         return
 
-    chat = update.effective_chat
+    update.effective_chat
     chat_id = update.effective_chat.id
-    chat_name = update.effective_message.chat.title
+    update.effective_message.chat.title
 
     try:
         msg = update.effective_message.reply_text(

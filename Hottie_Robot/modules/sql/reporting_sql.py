@@ -1,8 +1,9 @@
 import threading
 from typing import Union
 
-from Hottie_Robot.modules.sql import BASE, SESSION
 from sqlalchemy import Boolean, Column, Integer, String
+
+from Hottie_Robot.modules.sql import BASE, SESSION
 
 
 class ReportingUserSettings(BASE):

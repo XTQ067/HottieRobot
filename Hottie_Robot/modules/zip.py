@@ -1,14 +1,13 @@
 import os
 import time
 import zipfile
-
 from datetime import datetime
+
+from hachoir.metadata import extractMetadata
+from hachoir.parser import createParser
 from telethon import types
 from telethon.tl import functions
 from telethon.tl.types import DocumentAttributeVideo
-from hachoir.metadata import extractMetadata
-from hachoir.parser import createParser
-
 
 from Hottie_Robot import TEMP_DOWNLOAD_DIRECTORY, telethn
 from Hottie_Robot.events import register

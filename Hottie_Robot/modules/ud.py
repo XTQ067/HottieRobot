@@ -1,8 +1,9 @@
 import requests
+from telegram import ParseMode, Update
+from telegram.ext import CallbackContext
+
 from Hottie_Robot import dispatcher
 from Hottie_Robot.modules.disable import DisableAbleCommandHandler
-from telegram import ParseMode, Update
-from telegram.ext import CallbackContext, run_async
 
 
 def ud(update: Update, context: CallbackContext):

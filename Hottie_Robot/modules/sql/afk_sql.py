@@ -1,7 +1,8 @@
 import threading
 
-from Hottie_Robot.modules.sql import BASE, SESSION
 from sqlalchemy import Boolean, Column, Integer, UnicodeText
+
+from Hottie_Robot.modules.sql import BASE, SESSION
 
 
 class AFK(BASE):

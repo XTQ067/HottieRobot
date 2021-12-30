@@ -1,6 +1,6 @@
-from Hottie_Robot.mongo import db
-from typing import Dict, List, Union
+from typing import Dict, Union
 
+from Hottie_Robot.mongo import db
 
 coupledb = db.couple
 karmadb = db.karma
