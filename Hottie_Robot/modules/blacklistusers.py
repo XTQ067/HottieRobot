@@ -3,7 +3,7 @@ import html
 
 from telegram import ParseMode, Update
 from telegram.error import BadRequest
-from telegram.ext import CallbackContext, CommandHandler, run_async
+from telegram.ext import CallbackContext CommandHandler, run_async
 from telegram.utils.helpers import mention_html
 
 import Hottie_Robot.modules.sql.blacklistusers_sql as sql
@@ -27,7 +27,6 @@ BLACKLISTWHITELIST = [OWNER_ID] + DEV_USERS + DRAGONS + WOLVES + DEMONS
 BLABLEUSERS = [OWNER_ID] + DEV_USERS
 
 
-@run_async
 @dev_plus
 @gloggable
 def bl_user(update: Update, context: CallbackContext) -> str:
@@ -70,7 +69,6 @@ def bl_user(update: Update, context: CallbackContext) -> str:
     return log_message
 
 
-@run_async
 @dev_plus
 @gloggable
 def unbl_user(update: Update, context: CallbackContext) -> str:
@@ -113,7 +111,6 @@ def unbl_user(update: Update, context: CallbackContext) -> str:
         return ""
 
 
-@run_async
 @dev_plus
 def bl_users(update: Update, context: CallbackContext):
     users = []
@@ -159,9 +156,9 @@ def __user_info__(user_id):
     return text
 
 
-BL_HANDLER = CommandHandler("ignore", bl_user)
-UNBL_HANDLER = CommandHandler("notice", unbl_user)
-BLUSERS_HANDLER = CommandHandler("ignoredlist", bl_users)
+BL_HANDLER = CommandHandler("ignore", bl_user, run_async=True)
+UNBL_HANDLER = CommandHandler("notice", unbl_user, run_async=True)
+BLUSERS_HANDLER = CommandHandler("ignoredlist", bl_users, run_async=True)
 
 dispatcher.add_handler(BL_HANDLER)
 dispatcher.add_handler(UNBL_HANDLER)
