@@ -14,12 +14,7 @@ from telegram import (
     Update,
 )
 from telegram.error import BadRequest, TelegramError, Unauthorized
-from telegram.ext import (
-    CallbackContext,
-    CallbackQueryHandler,
-    CommandHandler,
-    run_async,
-)
+from telegram.ext import CallbackContext, CallbackQueryHandler, CommandHandler
 from telegram.utils.helpers import mention_html, mention_markdown
 
 import Hottie_Robot.modules.sql.feds_sql as sql
@@ -962,6 +957,7 @@ def fed_ban(update: Update, context: CallbackContext):
     # elif chats_in_fed > 0:
     #    send_message(update.effective_message,
     #                 "Fedban affected {} chats. ".format(chats_in_fed
+
 
 def unfban(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
@@ -2395,14 +2391,18 @@ FED_USERBAN_HANDLER = CommandHandler("fbanlist", fed_ban_list, run_async=True)
 FED_NOTIF_HANDLER = CommandHandler("fednotif", fed_notif, run_async=True)
 FED_CHATLIST_HANDLER = CommandHandler("fedchats", fed_chats, run_async=True)
 FED_IMPORTBAN_HANDLER = CommandHandler("importfbans", fed_import_bans, run_async=True)
-FEDSTAT_USER = DisableAbleCommandHandler(["fedstat", "fbanstat"], fed_stat_user, run_async=True)
+FEDSTAT_USER = DisableAbleCommandHandler(
+    ["fedstat", "fbanstat"], fed_stat_user, run_async=True
+)
 SET_FED_LOG = CommandHandler("setfedlog", set_fed_log, run_async=True)
 UNSET_FED_LOG = CommandHandler("unsetfedlog", unset_fed_log, run_async=True)
 SUBS_FED = CommandHandler("subfed", subs_feds, run_async=True)
 UNSUBS_FED = CommandHandler("unsubfed", unsubs_feds, run_async=True)
 MY_SUB_FED = CommandHandler("fedsubs", get_myfedsubs, run_async=True)
 MY_FEDS_LIST = CommandHandler("myfeds", get_myfeds_list, run_async=True)
-DELETEBTN_FED_HANDLER = CallbackQueryHandler(del_fed_button, pattern=r"rmfed_", run_async=True)
+DELETEBTN_FED_HANDLER = CallbackQueryHandler(
+    del_fed_button, pattern=r"rmfed_", run_async=True
+)
 FED_OWNER_HELP_HANDLER = CommandHandler("fedownerhelp", fed_owner_help, run_async=True)
 FED_ADMIN_HELP_HANDLER = CommandHandler("fedadminhelp", fed_admin_help, run_async=True)
 FED_USER_HELP_HANDLER = CommandHandler("feduserhelp", fed_user_help, run_async=True)
