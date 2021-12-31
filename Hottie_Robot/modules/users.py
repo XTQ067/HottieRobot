@@ -120,7 +120,7 @@ def chats(update: Update, context: CallbackContext):
         try:
             curr_chat = context.bot.getChat(chat.chat_id)
             curr_chat.get_member(context.bot.id)
-            chat_members = curr_chat.get_members_count(context.bot.id)
+            chat_members = curr_chat.get_member_count(context.bot.id)
             chatfile += "{}. {} | {} | {}\n".format(
                 P, chat.chat_name, chat.chat_id, chat_members
             )
