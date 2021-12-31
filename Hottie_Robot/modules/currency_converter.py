@@ -1,6 +1,6 @@
 import requests
 from telegram import ParseMode, Update
-from telegram.ext import CallbackContext, CommandHandler, run_async
+from telegram.ext import CallbackContext, CommandHandler
 
 from Hottie_Robot import CASH_API_KEY, dispatcher
 
