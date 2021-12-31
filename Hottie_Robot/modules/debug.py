@@ -2,7 +2,7 @@ import datetime
 import os
 
 from telegram import Update
-from telegram.ext import CallbackContext, CommandHandler, run_async
+from telegram.ext import CallbackContext, CommandHandler
 from telethon import events
 
 from Hottie_Robot import dispatcher, telethn
