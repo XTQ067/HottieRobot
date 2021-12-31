@@ -7,7 +7,7 @@ import traceback
 from contextlib import redirect_stdout
 
 from telegram import ParseMode, Update
-from telegram.ext import CallbackContext, CommandHandler, run_async
+from telegram.ext import CallbackContext, CommandHandler
 
 from Hottie_Robot import LOGGER, dispatcher
 from Hottie_Robot.modules.helper_funcs.chat_status import dev_plus
