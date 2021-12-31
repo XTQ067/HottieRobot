@@ -4,7 +4,7 @@ import os
 from typing import Optional
 
 from telegram import ParseMode, TelegramError, Update
-from telegram.ext import CallbackContext, CommandHandler, run_async
+from telegram.ext import CallbackContext, CommandHandler
 from telegram.utils.helpers import mention_html
 
 from Hottie_Robot import (
@@ -617,17 +617,29 @@ Visit @{SUPPORT_CHAT} for more information.
 SUDO_HANDLER = CommandHandler(("addsudo", "addarank"), addsudo, run_async=True)
 SUPPORT_HANDLER = CommandHandler(("addsupport", "addbrank"), addsupport, run_async=True)
 TIGER_HANDLER = CommandHandler(("addtiger", "addcrank"), addtiger, run_async=True)
-WHITELIST_HANDLER = CommandHandler(("addwhitelist", "adddrank"), addwhitelist, run_async=True)
-UNSUDO_HANDLER = CommandHandler(("removesudo", "removearank"), removesudo, run_async=True)
-UNSUPPORT_HANDLER = CommandHandler(("removesupport", "removebrank"), removesupport, run_async=True)
-UNTIGER_HANDLER = CommandHandler(("removetiger", "removecrank"), removetiger, run_async=True)
+WHITELIST_HANDLER = CommandHandler(
+    ("addwhitelist", "adddrank"), addwhitelist, run_async=True
+)
+UNSUDO_HANDLER = CommandHandler(
+    ("removesudo", "removearank"), removesudo, run_async=True
+)
+UNSUPPORT_HANDLER = CommandHandler(
+    ("removesupport", "removebrank"), removesupport, run_async=True
+)
+UNTIGER_HANDLER = CommandHandler(
+    ("removetiger", "removecrank"), removetiger, run_async=True
+)
 UNWHITELIST_HANDLER = CommandHandler(
     ("removewhitelist", "removedrank"), removewhitelist, run_async=True
 )
 
-WHITELISTLIST_HANDLER = CommandHandler(["whitelistlist", "dranks"], whitelistlist, run_async=True)
+WHITELISTLIST_HANDLER = CommandHandler(
+    ["whitelistlist", "dranks"], whitelistlist, run_async=True
+)
 TIGERLIST_HANDLER = CommandHandler(["tigers", "cranks"], tigerlist, run_async=True)
-SUPPORTLIST_HANDLER = CommandHandler(["supportlist", "branks"], supportlist, run_async=True)
+SUPPORTLIST_HANDLER = CommandHandler(
+    ["supportlist", "branks"], supportlist, run_async=True
+)
 SUDOLIST_HANDLER = CommandHandler(["sudolist", "aranks"], sudolist, run_async=True)
 DEVLIST_HANDLER = CommandHandler(["devlist", "sranks"], devlist, run_async=True)
 
