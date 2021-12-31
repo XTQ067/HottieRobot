@@ -2,12 +2,7 @@ from time import sleep
 
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.error import BadRequest, Unauthorized
-from telegram.ext import (
-    CallbackContext,
-    CallbackQueryHandler,
-    CommandHandler,
-    run_async,
-)
+from telegram.ext import CallbackContext, CallbackQueryHandler, CommandHandler
 
 import Hottie_Robot.modules.sql.global_bans_sql as gban_sql
 import Hottie_Robot.modules.sql.users_sql as user_sql
