@@ -64,12 +64,12 @@ RUN apt update && apt upgrade -y && \
 # Pypi package Repo upgrade
 RUN pip3 install --upgrade pip setuptools
 
-# Copy Python Requirements to /root/Hottie_Robot
-RUN git clone -b shiken https://github.com/AASFCYBERKING/Hottie_Robot /root/Hottie_Robot
-WORKDIR /root/Hottie_Robot
+# Copy Python Requirements to /root/HottieRobot
+RUN git clone -b shiken https://github.com/AASFCYBERKING/HottieRobot /root/HottieRobot
+WORKDIR /root/HottieRobot
 
-#Copy config file to /root/Hottie_Robot/Hottie_Robot
-COPY ./Hottie_Robot/sample_config.py ./Hottie_Robot/config.py* /root/Hottie_Robot/Hottie_Robot/
+#Copy config file to /root/HottieRobot/HottieRobot
+COPY ./HottieRobot/sample_config.py ./HottieRobot/config.py* /root/HottieRobot/HottieRobot/
 
 ENV PATH="/home/bot/bin:$PATH"
 
