@@ -4,7 +4,7 @@ import sys
 from time import sleep
 
 from telegram import TelegramError, Update
-from telegram.ext import CallbackContext, CommandHandler, run_async
+from telegram.ext import CallbackContext, CommandHandler
 
 from Hottie_Robot import dispatcher
 from Hottie_Robot.modules.helper_funcs.chat_status import dev_plus
@@ -56,7 +56,7 @@ def restart(update: Update, context: CallbackContext):
     os.execv("start.bat", sys.argv)
 
 
-LEAVE_HANDLER = CommandHandler("leave", leave, run_async=True )
+LEAVE_HANDLER = CommandHandler("leave", leave, run_async=True)
 GITPULL_HANDLER = CommandHandler("gitpull", gitpull, run_async=True)
 RESTART_HANDLER = CommandHandler("reboot", restart, run_async=True)
 
