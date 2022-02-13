@@ -40,6 +40,7 @@ HOTTIE_PICS = (
     "https://telegra.ph/file/2fb2fefda863a096b0e42.jpg",
 )
 
+
 @aasf.on(events.NewMessage(incoming=True, pattern="/repo"))
 async def repo(e):
     k = f"**Hoi** {e.sender.first_name} **Thx For Using Here is My Old Repo Current One Is Private 🔥**"
@@ -49,5 +50,11 @@ async def repo(e):
             Button.url("【►Owner◄】", "https://telegram.me/AASFCYBERKING"),
         ]
     ]
-    await aasf.send_file(e.chat_id, file=random.choice(HOTTIE_PICS), caption=k, parse_mode=ParseMode.HTML, buttons=BUTTON, reply_to=e
-)
+    await aasf.send_file(
+        e.chat_id,
+        file=random.choice(HOTTIE_PICS),
+        caption=k,
+        parse_mode=ParseMode.HTML,
+        buttons=BUTTON,
+        reply_to=e,
+    )
