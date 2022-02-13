@@ -3,7 +3,7 @@
 <p>
 
 <h1 align="center">
-    Hottie Robot
+    Hottie Robot [OLD]
 </h1>
 
 <p align="center">
