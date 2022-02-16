@@ -238,7 +238,7 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
             # Welcome WOLVES
             if new_mem.id in WOLVES:
                 update.effective_message.reply_text(
-                    "Oof! A Whitelist Users just joined!", reply_to_message_id=reply
+                    "ohh! A Whitelist Users just joined!", reply_to_message_id=reply
                 )
                 continue
 
