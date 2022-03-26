@@ -1,7 +1,7 @@
-Hottie_Robot/config.py
-Hottie_Robot/*.session
-Hottie_Robot/*.session-journa
-Hottie_Robot/config.ini
+SU57Robot/configithub
+SU57Robot/*.session
+SU57Robot/*.session-journa
+SU57Robot/config.ini
 log.txt
 *.pyc
 .idea/
@@ -9,8 +9,8 @@ log.txt
 .pydevproject
 .directory
 .vscode
-Hottie_Robot/modules/helper_funcs/temp.txt
-Hottie_Robot/elevated_users.json
+SU57/modules/helper_funcs/temp.txt
+SU57Robot/elevated_users.json
 start-3.10.1.bat
 *.session
 kangsticker.png
